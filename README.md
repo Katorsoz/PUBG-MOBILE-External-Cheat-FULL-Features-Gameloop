@@ -22,7 +22,7 @@ During the **Visual Studio 2022 installation** you need to select the following 
 
 ## Compilation
 
-- [Download the project to your computer from releases (for error-free compilation)]()
+- [Download the project to your computer from releases (for error-free compilation)](https://github.com/Katorsoz/PUBG-MOBILE-External-Cheat-FULL-Features-Gameloop/releases/download/PUBGMobile/PUBGM-Cheat.7z)
 - Extract Project to Folder.
 - Open Solution File (PUBGM Cheat.sln)
 - Set to: Release | x64
