@@ -1,0 +1,1415 @@
+﻿#include "DX11.h"
+#include "Setting.h"
+#include "DX11Window.h"
+
+//#include "Setting.cpp"
+
+LPDIRECT3DDEVICE9 DX11::pDevice = NULL;
+IDirect3DSwapChain9* DX11::SwapChain = {};
+LPDIRECT3D9 DX11::pD3D = NULL;
+D3DPRESENT_PARAMETERS DX11::d3dpp = {};
+LPD3DXFONT DX11::pPlayerNameFont = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::RedArrow   = NULL;
+LPDIRECT3DTEXTURE9 DX11::GreenArrow = NULL;
+LPDIRECT3DTEXTURE9 DX11::WhiteArrow = NULL;
+LPDIRECT3DTEXTURE9 DX11::TotalEnemy = NULL;
+LPDIRECT3DTEXTURE9 DX11::redzone = NULL;
+LPDIRECT3DTEXTURE9 DX11::GameCoin = NULL;
+LPDIRECT3DTEXTURE9 DX11::MainMenu = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::SnowBoard = NULL;
+LPDIRECT3DTEXTURE9 DX11::Helicopter = NULL;
+LPDIRECT3DTEXTURE9 DX11::BRDM = NULL;
+LPDIRECT3DTEXTURE9 DX11::Scooter = NULL;
+LPDIRECT3DTEXTURE9 DX11::Bike = NULL;
+LPDIRECT3DTEXTURE9 DX11::Motorcycle = NULL;
+LPDIRECT3DTEXTURE9 DX11::Motorcycle3 = NULL;
+LPDIRECT3DTEXTURE9 DX11::Snowmobile = NULL;
+LPDIRECT3DTEXTURE9 DX11::SnowBike = NULL;
+LPDIRECT3DTEXTURE9 DX11::Tuk = NULL;
+LPDIRECT3DTEXTURE9 DX11::Buggy = NULL;
+LPDIRECT3DTEXTURE9 DX11::Dacia = NULL;
+LPDIRECT3DTEXTURE9 DX11::Rony = NULL;
+LPDIRECT3DTEXTURE9 DX11::UAZ = NULL;
+LPDIRECT3DTEXTURE9 DX11::PG117 = NULL;
+LPDIRECT3DTEXTURE9 DX11::Aquarail = NULL;
+LPDIRECT3DTEXTURE9 DX11::Coupe = NULL;
+LPDIRECT3DTEXTURE9 DX11::Glider = NULL;
+LPDIRECT3DTEXTURE9 DX11::BigFoot = NULL;
+LPDIRECT3DTEXTURE9 DX11::Capsule = NULL;
+LPDIRECT3DTEXTURE9 DX11::UTV = NULL;
+LPDIRECT3DTEXTURE9 DX11::Beach_Buggy = NULL;
+LPDIRECT3DTEXTURE9 DX11::ATV2 = NULL;
+LPDIRECT3DTEXTURE9 DX11::Sportsa = NULL;
+LPDIRECT3DTEXTURE9 DX11::Sports = NULL;
+LPDIRECT3DTEXTURE9 DX11::CoupeRB = NULL;
+LPDIRECT3DTEXTURE9 DX11::Tesla = NULL;
+LPDIRECT3DTEXTURE9 DX11::Minibus = NULL;
+LPDIRECT3DTEXTURE9 DX11::Gravity = NULL;
+LPDIRECT3DTEXTURE9 DX11::Motorglider = NULL;
+LPDIRECT3DTEXTURE9 DX11::PickUpTruck = NULL;
+LPDIRECT3DTEXTURE9 DX11::Plane = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::Hand1 = NULL;
+LPDIRECT3DTEXTURE9 DX11::Hand2 = NULL;
+LPDIRECT3DTEXTURE9 DX11::Hand3 = NULL;
+LPDIRECT3DTEXTURE9 DX11::Hand4 = NULL;
+LPDIRECT3DTEXTURE9 DX11::Hand5 = NULL;
+LPDIRECT3DTEXTURE9 DX11::Hand6 = NULL;
+LPDIRECT3DTEXTURE9 DX11::Hand7 = NULL;
+LPDIRECT3DTEXTURE9 DX11::Hand8 = NULL;
+LPDIRECT3DTEXTURE9 DX11::Hand9 = NULL;
+LPDIRECT3DTEXTURE9 DX11::Hand10 = NULL;
+LPDIRECT3DTEXTURE9 DX11::Hand11 = NULL;
+LPDIRECT3DTEXTURE9 DX11::Hand12 = NULL;
+LPDIRECT3DTEXTURE9 DX11::Hand13 = NULL;
+LPDIRECT3DTEXTURE9 DX11::Hand14 = NULL;
+LPDIRECT3DTEXTURE9 DX11::Hand15 = NULL;
+LPDIRECT3DTEXTURE9 DX11::Hand16 = NULL;
+LPDIRECT3DTEXTURE9 DX11::Hand17 = NULL;
+LPDIRECT3DTEXTURE9 DX11::Hand18 = NULL;
+LPDIRECT3DTEXTURE9 DX11::Hand19 = NULL;
+LPDIRECT3DTEXTURE9 DX11::Hand20 = NULL;
+LPDIRECT3DTEXTURE9 DX11::Hand21 = NULL;
+LPDIRECT3DTEXTURE9 DX11::Hand22 = NULL;
+LPDIRECT3DTEXTURE9 DX11::Hand23 = NULL;
+LPDIRECT3DTEXTURE9 DX11::Hand24 = NULL;
+LPDIRECT3DTEXTURE9 DX11::Hand25 = NULL;
+LPDIRECT3DTEXTURE9 DX11::Hand26 = NULL;
+LPDIRECT3DTEXTURE9 DX11::Hand27 = NULL;
+LPDIRECT3DTEXTURE9 DX11::Hand28 = NULL;
+LPDIRECT3DTEXTURE9 DX11::Hand29 = NULL;
+LPDIRECT3DTEXTURE9 DX11::Hand30 = NULL;
+LPDIRECT3DTEXTURE9 DX11::Hand31 = NULL;
+LPDIRECT3DTEXTURE9 DX11::Hand32 = NULL;
+LPDIRECT3DTEXTURE9 DX11::Hand33 = NULL;
+LPDIRECT3DTEXTURE9 DX11::Hand34 = NULL;
+LPDIRECT3DTEXTURE9 DX11::Hand35 = NULL;
+LPDIRECT3DTEXTURE9 DX11::Hand36 = NULL;
+LPDIRECT3DTEXTURE9 DX11::Hand37 = NULL;
+LPDIRECT3DTEXTURE9 DX11::Hand38 = NULL;
+LPDIRECT3DTEXTURE9 DX11::Hand39 = NULL;
+LPDIRECT3DTEXTURE9 DX11::Hand40 = NULL;
+LPDIRECT3DTEXTURE9 DX11::Hand41 = NULL;
+LPDIRECT3DTEXTURE9 DX11::Hand42 = NULL;
+LPDIRECT3DTEXTURE9 DX11::Hand43 = NULL;
+LPDIRECT3DTEXTURE9 DX11::Hand44 = NULL;
+LPDIRECT3DTEXTURE9 DX11::Hand45 = NULL;
+LPDIRECT3DTEXTURE9 DX11::Hand46 = NULL;
+LPDIRECT3DTEXTURE9 DX11::Hand47 = NULL;
+LPDIRECT3DTEXTURE9 DX11::Hand48 = NULL;
+LPDIRECT3DTEXTURE9 DX11::Hand49 = NULL;
+LPDIRECT3DTEXTURE9 DX11::Hand50 = NULL;
+LPDIRECT3DTEXTURE9 DX11::Hand51 = NULL;
+LPDIRECT3DTEXTURE9 DX11::Hand52 = NULL;
+LPDIRECT3DTEXTURE9 DX11::Hand53 = NULL;
+LPDIRECT3DTEXTURE9 DX11::Hand54 = NULL;
+LPDIRECT3DTEXTURE9 DX11::Hand55 = NULL;
+LPDIRECT3DTEXTURE9 DX11::Hand56 = NULL;
+LPDIRECT3DTEXTURE9 DX11::Hand57 = NULL;
+LPDIRECT3DTEXTURE9 DX11::Hand58 = NULL;
+LPDIRECT3DTEXTURE9 DX11::Hand59 = NULL;
+LPDIRECT3DTEXTURE9 DX11::Hand60 = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::Image = NULL;
+LPDIRECT3DTEXTURE9 DX11::Heart = NULL;
+LPDIRECT3DTEXTURE9 DX11::LeftMenu = NULL;
+LPDIRECT3DTEXTURE9 DX11::AirDrop = NULL;
+LPDIRECT3DTEXTURE9 DX11::DeadBox = NULL;
+LPDIRECT3DTEXTURE9 DX11::AKM = NULL;
+LPDIRECT3DTEXTURE9 DX11::FLAREGUN = NULL;
+LPDIRECT3DTEXTURE9 DX11::Helmet3 = NULL;
+LPDIRECT3DTEXTURE9 DX11::Bag3 = NULL;
+LPDIRECT3DTEXTURE9 DX11::Armor3 = NULL;
+LPDIRECT3DTEXTURE9 DX11::SX8a = NULL;
+LPDIRECT3DTEXTURE9 DX11::SX6a = NULL;
+LPDIRECT3DTEXTURE9 DX11::molotova = NULL;
+LPDIRECT3DTEXTURE9 DX11::grenadea = NULL;
+LPDIRECT3DTEXTURE9 DX11::ammo5a = NULL;
+LPDIRECT3DTEXTURE9 DX11::ammo7a = NULL;
+
+
+#pragma endregion Ammos
+
+LPDIRECT3DTEXTURE9 DX11::Amm5 = NULL;
+LPDIRECT3DTEXTURE9 DX11::Amm7 = NULL;
+LPDIRECT3DTEXTURE9 DX11::Amm9 = NULL;
+LPDIRECT3DTEXTURE9 DX11::Amm12 = NULL;
+LPDIRECT3DTEXTURE9 DX11::Amm45 = NULL;
+LPDIRECT3DTEXTURE9 DX11::Amm300 = NULL;
+LPDIRECT3DTEXTURE9 DX11::AmmoBow = NULL;
+LPDIRECT3DTEXTURE9 DX11::AmmoFlare = NULL;
+
+#pragma endregion Armors
+
+LPDIRECT3DTEXTURE9 DX11::VestV1 = NULL;
+LPDIRECT3DTEXTURE9 DX11::VestV2 = NULL;
+LPDIRECT3DTEXTURE9 DX11::VestV3 = NULL;
+LPDIRECT3DTEXTURE9 DX11::HelmetV1 = NULL;
+LPDIRECT3DTEXTURE9 DX11::HelmetV2 = NULL;
+LPDIRECT3DTEXTURE9 DX11::HelmetV3 = NULL;
+LPDIRECT3DTEXTURE9 DX11::BagV1 = NULL;
+LPDIRECT3DTEXTURE9 DX11::BagV2 = NULL;
+LPDIRECT3DTEXTURE9 DX11::BagV3 = NULL;
+
+#pragma endregion Weapons
+
+LPDIRECT3DTEXTURE9 DX11::AUG = NULL;
+LPDIRECT3DTEXTURE9 DX11::M416 = NULL;
+LPDIRECT3DTEXTURE9 DX11::M762 = NULL;
+LPDIRECT3DTEXTURE9 DX11::SCARL = NULL;
+LPDIRECT3DTEXTURE9 DX11::AK = NULL;
+LPDIRECT3DTEXTURE9 DX11::M16A4 = NULL;
+LPDIRECT3DTEXTURE9 DX11::Groza = NULL;
+LPDIRECT3DTEXTURE9 DX11::Mk47 = NULL;
+LPDIRECT3DTEXTURE9 DX11::G36 = NULL;
+LPDIRECT3DTEXTURE9 DX11::QBZ = NULL;
+LPDIRECT3DTEXTURE9 DX11::FAMAS = NULL;
+
+#pragma endregion Other Weapon
+
+LPDIRECT3DTEXTURE9 DX11::M249 = NULL;
+LPDIRECT3DTEXTURE9 DX11::MG3 = NULL;
+LPDIRECT3DTEXTURE9 DX11::DP28 = NULL;
+LPDIRECT3DTEXTURE9 DX11::CrossBow = NULL;
+
+#pragma endregion SMG
+
+LPDIRECT3DTEXTURE9 DX11::MP5K = NULL;
+LPDIRECT3DTEXTURE9 DX11::PP19 = NULL;
+LPDIRECT3DTEXTURE9 DX11::P90 = NULL;
+LPDIRECT3DTEXTURE9 DX11::TommyGun = NULL;
+LPDIRECT3DTEXTURE9 DX11::UMP9 = NULL;
+LPDIRECT3DTEXTURE9 DX11::Uzi = NULL;
+LPDIRECT3DTEXTURE9 DX11::Vector = NULL;
+
+#pragma endregion ShotGun
+
+LPDIRECT3DTEXTURE9 DX11::DP12 = NULL;
+LPDIRECT3DTEXTURE9 DX11::S12K = NULL;
+LPDIRECT3DTEXTURE9 DX11::S686 = NULL;
+LPDIRECT3DTEXTURE9 DX11::S1897 = NULL;
+LPDIRECT3DTEXTURE9 DX11::SawedOff = NULL;
+LPDIRECT3DTEXTURE9 DX11::DBS = NULL;
+LPDIRECT3DTEXTURE9 DX11::M1014 = NULL;
+
+#pragma endregion Pistol
+
+LPDIRECT3DTEXTURE9 DX11::DesertEagle = NULL;
+LPDIRECT3DTEXTURE9 DX11::Flaregun = NULL;
+LPDIRECT3DTEXTURE9 DX11::P18C = NULL;
+LPDIRECT3DTEXTURE9 DX11::P92 = NULL;
+LPDIRECT3DTEXTURE9 DX11::P1911 = NULL;
+LPDIRECT3DTEXTURE9 DX11::R45 = NULL;
+LPDIRECT3DTEXTURE9 DX11::R1895 = NULL;
+LPDIRECT3DTEXTURE9 DX11::Vz61 = NULL;
+
+#pragma endregion Melee Weapon
+
+LPDIRECT3DTEXTURE9 DX11::Cowbar = NULL;
+LPDIRECT3DTEXTURE9 DX11::Machete = NULL;
+LPDIRECT3DTEXTURE9 DX11::Pan = NULL;
+LPDIRECT3DTEXTURE9 DX11::Sickle = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::Dagger = NULL;
+LPDIRECT3DTEXTURE9 DX11::ZombieBlade = NULL;
+LPDIRECT3DTEXTURE9 DX11::ZombieHammer = NULL;
+
+#pragma endregion Sniper
+
+LPDIRECT3DTEXTURE9 DX11::AWM = NULL;
+LPDIRECT3DTEXTURE9 DX11::AMR = NULL;
+LPDIRECT3DTEXTURE9 DX11::Kar98 = NULL;
+LPDIRECT3DTEXTURE9 DX11::M24 = NULL;
+
+#pragma endregion Sniper Rifle
+
+LPDIRECT3DTEXTURE9 DX11::Mini14 = NULL;
+LPDIRECT3DTEXTURE9 DX11::QBU = NULL;
+LPDIRECT3DTEXTURE9 DX11::SKS = NULL;
+LPDIRECT3DTEXTURE9 DX11::SLR = NULL;
+LPDIRECT3DTEXTURE9 DX11::VSS = NULL;
+LPDIRECT3DTEXTURE9 DX11::Mk14 = NULL;
+LPDIRECT3DTEXTURE9 DX11::Mk12 = NULL;
+LPDIRECT3DTEXTURE9 DX11::Win94 = NULL;
+#pragma endregion Scops
+
+LPDIRECT3DTEXTURE9 DX11::RedDot = NULL;
+LPDIRECT3DTEXTURE9 DX11::Holo = NULL;
+LPDIRECT3DTEXTURE9 DX11::S2X = NULL;
+LPDIRECT3DTEXTURE9 DX11::S3X = NULL;
+LPDIRECT3DTEXTURE9 DX11::S4X = NULL;
+LPDIRECT3DTEXTURE9 DX11::S6X = NULL;
+LPDIRECT3DTEXTURE9 DX11::S8X = NULL;
+
+#pragma endregion Grenades
+
+LPDIRECT3DTEXTURE9 DX11::FragGrenade = NULL;
+LPDIRECT3DTEXTURE9 DX11::BurnGrenade = NULL;
+LPDIRECT3DTEXTURE9 DX11::SmokeGrenade = NULL;
+LPDIRECT3DTEXTURE9 DX11::Apple = NULL;
+
+#pragma endregion Attachments
+
+LPDIRECT3DTEXTURE9 DX11::ARExtended = NULL;
+LPDIRECT3DTEXTURE9 DX11::ARQExtended = NULL;
+LPDIRECT3DTEXTURE9 DX11::ARQuick = NULL;
+LPDIRECT3DTEXTURE9 DX11::SMGExtended = NULL;
+LPDIRECT3DTEXTURE9 DX11::SMGQExtended = NULL;
+LPDIRECT3DTEXTURE9 DX11::SMGQuick = NULL;
+LPDIRECT3DTEXTURE9 DX11::SniperExtended = NULL;
+LPDIRECT3DTEXTURE9 DX11::SniperQExtended = NULL;
+LPDIRECT3DTEXTURE9 DX11::SniperQuick = NULL;
+LPDIRECT3DTEXTURE9 DX11::Angled = NULL;
+LPDIRECT3DTEXTURE9 DX11::HalfGrip = NULL;
+LPDIRECT3DTEXTURE9 DX11::Lasersight = NULL;
+LPDIRECT3DTEXTURE9 DX11::LightGrip = NULL;
+LPDIRECT3DTEXTURE9 DX11::ThumbGrip = NULL;
+LPDIRECT3DTEXTURE9 DX11::Vertical = NULL;
+LPDIRECT3DTEXTURE9 DX11::SniperCheckPad = NULL;
+LPDIRECT3DTEXTURE9 DX11::ARCheckPad = NULL;
+LPDIRECT3DTEXTURE9 DX11::SMGCheckPad = NULL;
+LPDIRECT3DTEXTURE9 DX11::ARCompensator = NULL;
+LPDIRECT3DTEXTURE9 DX11::ARFlashHider = NULL;
+LPDIRECT3DTEXTURE9 DX11::ARSuppressor = NULL;
+LPDIRECT3DTEXTURE9 DX11::SMGCompensator = NULL;
+LPDIRECT3DTEXTURE9 DX11::SMGFlashHider = NULL;
+LPDIRECT3DTEXTURE9 DX11::SMGSuppressor = NULL;
+LPDIRECT3DTEXTURE9 DX11::SniperCompensator = NULL;
+LPDIRECT3DTEXTURE9 DX11::SniperFlashHider = NULL;
+LPDIRECT3DTEXTURE9 DX11::SniperSuppressor = NULL;
+LPDIRECT3DTEXTURE9 DX11::DuckBill = NULL;
+LPDIRECT3DTEXTURE9 DX11::Choke = NULL;
+LPDIRECT3DTEXTURE9 DX11::CrossbowQuick = NULL;
+LPDIRECT3DTEXTURE9 DX11::Benzin = NULL;
+LPDIRECT3DTEXTURE9 DX11::SuitDesert = NULL;
+LPDIRECT3DTEXTURE9 DX11::SuitDesert2 = NULL;
+LPDIRECT3DTEXTURE9 DX11::SuitArctic = NULL;
+LPDIRECT3DTEXTURE9 DX11::SuitWoodland = NULL;
+
+#pragma endregion Health
+
+LPDIRECT3DTEXTURE9 DX11::DrinkEnergy = NULL;
+LPDIRECT3DTEXTURE9 DX11::FirstAid = NULL;
+LPDIRECT3DTEXTURE9 DX11::MedKit = NULL;
+LPDIRECT3DTEXTURE9 DX11::Injection = NULL;
+LPDIRECT3DTEXTURE9 DX11::Bandage = NULL;
+LPDIRECT3DTEXTURE9 DX11::Pinkiller = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::photo = NULL;
+LPDIRECT3DTEXTURE9 DX11::photo2 = NULL;
+LPDIRECT3DTEXTURE9 DX11::r = NULL;
+LPDIRECT3DTEXTURE9 DX11::a = NULL;
+LPDIRECT3DTEXTURE9 DX11::l = NULL;
+LPDIRECT3DTEXTURE9 DX11::p = NULL;
+LPDIRECT3DTEXTURE9 DX11::w = NULL;
+LPDIRECT3DTEXTURE9 DX11::g = NULL;
+LPDIRECT3DTEXTURE9 DX11::wo = NULL;
+LPDIRECT3DTEXTURE9 DX11::v = NULL;
+LPDIRECT3DTEXTURE9 DX11::m = NULL;
+LPDIRECT3DTEXTURE9 DX11::i = NULL;
+LPDIRECT3DTEXTURE9 DX11::s = NULL;
+LPDIRECT3DTEXTURE9 DX11::c = NULL;
+LPDIRECT3DTEXTURE9 DX11::soufiww = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::AFFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::ALFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::DZFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::ASFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::ADFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::AOFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::AIFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::AQFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::AGFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::ARFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::AMFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::AWFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::AUFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::ATFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::AZFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::BSFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::BHFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::BDFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::BBFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::BYFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::BEFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::BZFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::BJFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::BMFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::BTFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::BOFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::BQFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::BAFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::BWFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::BVFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::BRFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::IOFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::BNFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::BGFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::BFFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::BIFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::CVFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::KHFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::CMFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::CAFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::KYFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::CFFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::TDFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::CLFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::CNFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::CXFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::CCFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::COFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::KMFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::CDFLAG = NULL;
+LPDIRECT3DTEXTURE9 DX11::CGFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::CKFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::CRFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::HRFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::CUFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::CWFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::CYFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::CZFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::CIFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::DKFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::DJFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::DMFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::DOFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::ECFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::EGFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::SVFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::GQFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::ERFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::EEFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::SZFLAG = NULL;
+LPDIRECT3DTEXTURE9 DX11::ETFLAG = NULL;
+LPDIRECT3DTEXTURE9 DX11::FKFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::FOFLAG = NULL;
+LPDIRECT3DTEXTURE9 DX11::FJFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::FIFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::FRFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::GFFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::PFFLAG = NULL;
+LPDIRECT3DTEXTURE9 DX11::TFFLAG = NULL;
+LPDIRECT3DTEXTURE9 DX11::GAFLAG = NULL;
+LPDIRECT3DTEXTURE9 DX11::GMFLAG = NULL;
+LPDIRECT3DTEXTURE9 DX11::GEFLAG = NULL;
+LPDIRECT3DTEXTURE9 DX11::DEFLAG = NULL;
+LPDIRECT3DTEXTURE9 DX11::GHFLAG = NULL;
+LPDIRECT3DTEXTURE9 DX11::GIFLAG = NULL;
+LPDIRECT3DTEXTURE9 DX11::GRFLAG = NULL;
+LPDIRECT3DTEXTURE9 DX11::GLFLAG = NULL;
+LPDIRECT3DTEXTURE9 DX11::GDFLAG = NULL;
+LPDIRECT3DTEXTURE9 DX11::GPFLAG = NULL;
+LPDIRECT3DTEXTURE9 DX11::GUFLAG = NULL;
+LPDIRECT3DTEXTURE9 DX11::GTFLAG = NULL;
+LPDIRECT3DTEXTURE9 DX11::GGFLAG = NULL;
+LPDIRECT3DTEXTURE9 DX11::GNFLAG = NULL;
+LPDIRECT3DTEXTURE9 DX11::GWFLAG = NULL;
+LPDIRECT3DTEXTURE9 DX11::GYFLAG = NULL;
+LPDIRECT3DTEXTURE9 DX11::HTFLAG = NULL;
+LPDIRECT3DTEXTURE9 DX11::HMFLAG = NULL;
+LPDIRECT3DTEXTURE9 DX11::VAFLAG = NULL;
+LPDIRECT3DTEXTURE9 DX11::HNFLAG = NULL;
+LPDIRECT3DTEXTURE9 DX11::HKFLAG = NULL;
+LPDIRECT3DTEXTURE9 DX11::HUFLAG = NULL;
+LPDIRECT3DTEXTURE9 DX11::JMFLAG = NULL;
+LPDIRECT3DTEXTURE9 DX11::G1FLAG = NULL;
+LPDIRECT3DTEXTURE9 DX11::JPFLAG = NULL;
+LPDIRECT3DTEXTURE9 DX11::JEFLAG = NULL;
+LPDIRECT3DTEXTURE9 DX11::JOFLAG = NULL;
+LPDIRECT3DTEXTURE9 DX11::KZFLAG = NULL;
+LPDIRECT3DTEXTURE9 DX11::KEFLAG = NULL;
+LPDIRECT3DTEXTURE9 DX11::KIFLAG = NULL;
+LPDIRECT3DTEXTURE9 DX11::KPFLAG = NULL;
+LPDIRECT3DTEXTURE9 DX11::KRFLAG = NULL;
+LPDIRECT3DTEXTURE9 DX11::KWFLAG = NULL;
+LPDIRECT3DTEXTURE9 DX11::KGFLAG = NULL;
+LPDIRECT3DTEXTURE9 DX11::LAFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::LVFLAG = NULL;
+LPDIRECT3DTEXTURE9 DX11::LBFLAG = NULL;
+LPDIRECT3DTEXTURE9 DX11::LSFLAG = NULL;
+LPDIRECT3DTEXTURE9 DX11::LRFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::LYFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::LIFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::LTFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::LUFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::MOFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::MGFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::MWFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::MYFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::MVFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::MLFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::MTFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::MHFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::MQFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::MRFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::MUFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::YTFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::MXFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::FMFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::MDFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::MCFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::MNFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::MEFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::MSFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::MAFLAG = NULL;
+LPDIRECT3DTEXTURE9 DX11::MZFLAG = NULL;
+LPDIRECT3DTEXTURE9 DX11::MMFLAG = NULL;
+LPDIRECT3DTEXTURE9 DX11::NAFLAG = NULL;
+LPDIRECT3DTEXTURE9 DX11::NRFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::NPFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::NLFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::NCFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::NZFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::NIFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::NEFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::NGFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::NUFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::NFFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::MPFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::NOFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::OMFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::PKFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::PWFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::PSFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::PAFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::PGFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::PYFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::PEFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::PHFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::PNFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::PLFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::PTFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::PRFLAG = NULL;
+LPDIRECT3DTEXTURE9 DX11::QAFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::MKFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::ROFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::RUFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::RWFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::REFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::BLFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::SHFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::KNFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::LCFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::MFFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::PMFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::VCFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::WSFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::SMFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::STFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::SAFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::SNFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::RSFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::SCFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::SLFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::SGFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::SXFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::SKFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::SIFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::SBFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::SOFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::ZAFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::GSFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::SSFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::ESFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::LKFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::SDFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::SRFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::SJFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::SEFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::CHFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::SYFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::TWFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::TJFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::TZFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::THFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::TLFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::TGFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::TKFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::TOFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::TTFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::TNFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::TRFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::TMFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::TCFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::TVFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::UGFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::UAFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::AEFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::GBFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::USFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::UYFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::UZFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::VUFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::VEFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::VNFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::VGFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::VIFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::WFFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::EHFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::YEFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::ZMFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::ZWFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::AXFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::ISFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::INFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::IDFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::IRFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::IQFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::IEFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::IMFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::ILFLAG = NULL;
+
+LPDIRECT3DTEXTURE9 DX11::ITFLAG = NULL;
+
+
+int DiffX;
+int DiffY;
+
+
+std::string string_To_UTF8(const std::string& str)
+{
+	int nwLen = ::MultiByteToWideChar(CP_ACP, 0, str.c_str(), -1, NULL, 0);
+
+	wchar_t* pwBuf = new wchar_t[nwLen + 1];
+	ZeroMemory(pwBuf, nwLen * 2 + 2);
+
+	::MultiByteToWideChar(CP_ACP, 0, str.c_str(), str.length(), pwBuf, nwLen);
+
+	int nLen = ::WideCharToMultiByte(CP_UTF8, 0, pwBuf, -1, NULL, NULL, NULL, NULL);
+
+	char* pBuf = new char[nLen + 1];
+	ZeroMemory(pBuf, nLen + 1);
+
+	::WideCharToMultiByte(CP_UTF8, 0, pwBuf, nwLen, pBuf, nLen, NULL, NULL);
+
+	std::string retStr(pBuf);
+
+	delete[]pwBuf;
+	delete[]pBuf;
+
+	pwBuf = NULL;
+	pBuf = NULL;
+
+	return retStr;
+}
+
+
+BOOL DX11::Instantiate(HWND hWindow, INT Width, INT Height)
+{
+	//create the Direct3D interface
+	pD3D = Direct3DCreate9(D3D_SDK_VERSION);
+	if (pD3D == nullptr)
+	{
+		std::cout << "Direct3DCreate9 failed" << std::endl;
+		return 0;
+	}
+
+	//create a struct to hold various device information
+	d3dpp;
+	ZeroMemory(&d3dpp, sizeof(d3dpp));    // clear out the struct for use
+	d3dpp.Windowed = TRUE;    // program windowed, not fullscreen
+	d3dpp.SwapEffect = D3DSWAPEFFECT_DISCARD;    // discard old frames
+	d3dpp.hDeviceWindow = hWindow;    // set the window to be used by Direct3D
+	d3dpp.BackBufferFormat = D3DFMT_A8R8G8B8;     // set the back buffer format to 32-bit
+	d3dpp.BackBufferWidth = Width;    // set the width of the buffer
+	d3dpp.BackBufferHeight = Height;    // set the height of the buffer
+	d3dpp.EnableAutoDepthStencil = TRUE;
+	d3dpp.AutoDepthStencilFormat = D3DFMT_D16;
+	d3dpp.MultiSampleType = D3DMULTISAMPLE_NONE;
+	d3dpp.MultiSampleQuality = 0;
+	d3dpp.PresentationInterval = D3DPRESENT_INTERVAL_IMMEDIATE;
+	d3dpp.FullScreen_RefreshRateInHz = D3DPRESENT_RATE_DEFAULT;
+
+	D3DCAPS9 caps;
+	DWORD behaviorFlags;
+	if (FAILED(pD3D->GetDeviceCaps(D3DADAPTER_DEFAULT, D3DDEVTYPE_HAL, &caps))) {
+		std::cout << "GetDeviceCaps failed" << std::endl;
+		return 0;
+	}
+	if (caps.DevCaps & D3DDEVCAPS_HWTRANSFORMANDLIGHT) {
+		behaviorFlags = D3DCREATE_HARDWARE_VERTEXPROCESSING;
+		std::cout << "BehaviorFlags: D3DCREATE_HARDWARE_VERTEXPROCESSING" << std::endl;
+	}
+	else {
+		behaviorFlags = D3DCREATE_SOFTWARE_VERTEXPROCESSING;
+		std::cout << "BehaviorFlags: D3DCREATE_SOFTWARE_VERTEXPROCESSING" << std::endl;
+	}
+
+	// create a device class using this information and the info from the d3dpp stuct
+	if (FAILED(pD3D->CreateDevice(D3DADAPTER_DEFAULT, D3DDEVTYPE_HAL, hWindow, behaviorFlags, &d3dpp, &pDevice)))
+	{
+		std::cout << "<D3D> CreateDevice failed!" << std::endl;
+		return 0;
+	}
+
+	D3DXCreateFont(pDevice, 20, 0, FW_REGULAR, 0, FALSE, DEFAULT_CHARSET, OUT_DEFAULT_PRECIS, ANTIALIASED_QUALITY, DEFAULT_PITCH | FF_DONTCARE, TEXT("Microsoft Yahei"), &pPlayerNameFont);
+	pD3D->Release();
+	return 1;
+
+}
+
+FLOAT DX11::alpha = 0;
+FLOAT  Transparent[4] = { 0,0,0,0 };
+
+VOID DX11::BeginDraw()
+{
+	//pDevice->SetRenderState(D3DRS_ZENABLE, false);
+	//pDevice->SetRenderState(D3DRS_ALPHABLENDENABLE, false);
+	//pDevice->SetRenderState(D3DRS_SCISSORTESTENABLE, false);
+	//D3DVIEWPORT9 Veip; 
+	//	pDevice->GetViewport(&Veip);
+	//	Veip.Height = DX11Window::Height;
+	//	Veip.Width = DX11Window::Width;
+	//
+	// pDevice->SetViewport(&Veip);
+	pDevice->Clear(0, NULL, D3DCLEAR_TARGET, D3DCOLOR_ARGB(0, 0, 0, 0), 1.0f, 0);
+
+	// pDevice->Clear(0, NULL, D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER, 0, 0.0f, 0);  
+	pDevice->BeginScene();
+	//	pImmediateContext->ClearDepthStencilView(pDepthStencilView, D3D11_CLEAR_DEPTH, 1.0f, 0);
+}
+
+VOID DX11::ClearSurface()
+{
+	//pImmediateContext->ClearRenderTargetView(pRenderTargetView, Transparent);
+	//pImmediateContext->ClearDepthStencilView(pDepthStencilView, D3D11_CLEAR_DEPTH, 1.0f, 0);
+}
+
+VOID DX11::EndDraw()
+{
+	pDevice->EndScene();
+	//	RECT RECT;
+   // 	GetWindowRect(Game::hWindow, &RECT);
+	pDevice->Present(0, NULL, NULL, NULL);
+}
+
+
+
+VOID DX11::ImGui_DX11::IMGUIDRAWLINE(FLOAT X1, FLOAT Y1, FLOAT X2, FLOAT Y2, ImColor Color, FLOAT Thickness)
+{
+	ImGuiWindow* window = ImGui::GetCurrentWindow();
+
+	window->DrawList->AddLine(ImVec2(X1, Y1), ImVec2(X2, Y2), Color, Thickness);
+
+}
+VOID DX11::ImGui_DX11::IMGUIDRAWFILLEDCIRCLE(FLOAT X, FLOAT Y, FLOAT Radius, ImColor Color, FLOAT Thickness)
+{
+	ImGuiWindow* window = ImGui::GetCurrentWindow();
+	window->DrawList->AddCircleFilled(ImVec2(X, Y), Radius, Color, 0);
+
+}
+VOID DX11::ImGui_DX11::IMGUIDRAWCIRCLE(FLOAT X, FLOAT Y, FLOAT Radius, ImColor Color, FLOAT Thickness)
+{
+	ImGuiWindow* window = ImGui::GetCurrentWindow();
+	window->DrawList->AddCircle(ImVec2(X, Y), Radius, Color, 0);
+
+}
+
+//void DX11::ImGui_DX11::FillTriangle(int x1, int y1, int x2, int y2, int x3, int y3, float thickness, ImColor color) {
+//	pImGuiDraw = ImGui::GetBackgroundDrawList();
+//	DrawLine(x1, y1, x2, y2, color, thickness);
+//	DrawLine(x2, y2, x3, y3, color, thickness);
+//	DrawLine(x3, y3, x1, y1, color, thickness);
+//	for (int x = x1; x <= x2; x++) {
+//		for (int y = y1; y <= y2; y++) {
+//			DrawLine(x3, y3, x, y, color, thickness);
+//		}
+//	}
+//}
+
+
+ImDrawList* DX11::ImGui_DX11::pImGuiDraw;
+ImFont* DX11::ImGui_DX11::pRegularFont;
+ImFont* DX11::ImGui_DX11::special;
+ImFont* DX11::ImGui_DX11::pic;
+ImFont* DX11::ImGui_DX11::Font1;
+ImFont* DX11::ImGui_DX11::Font2;
+ImFont* DX11::ImGui_DX11::Font3;
+ImFont* DX11::ImGui_DX11::Chinese;
+ImFont* DX11::ImGui_DX11::ARIALBD;
+ImFont* DX11::ImGui_DX11::ARIAL;
+ImFont* DX11::ImGui_DX11::TAHOMA;
+ImFont* DX11::ImGui_DX11::TAHOMABD;
+ImFont* DX11::ImGui_DX11::VERDANABD;
+ImFont* DX11::ImGui_DX11::VERDANA;
+ImFont* DX11::ImGui_DX11::Font;
+void DX11::ImGui_DX11::CornerBox(int x, int y, int w, int h, int thickness, float cornered, ImColor color)
+{
+	// Left Top
+	DrawLine(x, y, x + (w * cornered), y, color, thickness);
+	DrawLine(x, y, x, y + (h * cornered), color, thickness);
+	// Left Bottom
+	DrawLine(x, y + h, x + (w * cornered), y + h, color, thickness);
+	DrawLine(x, y + h, x, (y + h) - (h * cornered), color, thickness);
+	// Right Top
+	DrawLine(x + w, y, (x + w) - (w * cornered), y, color, thickness);
+	DrawLine(x + w, y, x + w, y + (h * cornered), color, thickness);
+	// Right Bottom
+	DrawLine(x + w, y + h, (x + w) - (w * cornered), y + h, color, thickness);
+	DrawLine(x + w, y + h, x + w, (y + h) - (h * cornered), color, thickness);
+}
+VOID DX11::ImGui_DX11::DrawLine(FLOAT X1, FLOAT Y1, FLOAT X2, FLOAT Y2, ImColor Color, FLOAT Thickness)
+{
+	pImGuiDraw = ImGui::GetBackgroundDrawList();
+	pImGuiDraw->AddLine(ImVec2(X1, Y1), ImVec2(X2, Y2), Color, Thickness);
+}
+void DX11::ImGui_DX11::AimLine(int x, int y, int x1, int y1, ImColor color, float thickness)
+{
+	//  ImGuiWindow* window = ImGui::GetOverlayDrawList();
+
+	float a = (color >> 24) & 0xff;
+	float r = (color >> 16) & 0xff;
+	float g = (color >> 8) & 0xff;
+	float b = (color) & 0xff;
+	pImGuiDraw->AddLine(ImVec2(x, y), ImVec2(x1, y1),
+		ImGui::GetColorU32(ImVec4(r / 255, g / 255, b / 255, a / 255)), thickness);
+
+
+}
+
+
+VOID DX11::ImGui_DX11::DrawCircle(FLOAT X, FLOAT Y, FLOAT Radius, ImColor Color, FLOAT Thickness)
+{
+	pImGuiDraw = ImGui::GetBackgroundDrawList();
+	pImGuiDraw->AddCircle(ImVec2(X, Y), Radius, Color, 0, Thickness);
+
+}
+VOID DX11::ImGui_DX11::DrawCircle3(int x, int y, int radius, ImColor Color, int segments)
+{
+	ImGui::GetOverlayDrawList()->AddCircle(ImVec2(x, y), radius, ImGui::ColorConvertFloat4ToU32(Color), segments);
+}
+
+VOID DX11::ImGui_DX11::DrawCircle2(FLOAT X, FLOAT Y, FLOAT Radius, ImColor Color)
+{
+	pImGuiDraw = ImGui::GetBackgroundDrawList();
+	pImGuiDraw->AddCircleFilled(ImVec2(X, Y), Radius, Color);
+
+}
+VOID DX11::ImGui_DX11::Tri(FLOAT X, FLOAT Y, ImColor Color)
+{
+	pImGuiDraw = ImGui::GetBackgroundDrawList();
+	pImGuiDraw->AddTriangleFilled(ImVec2(X, Y), ImVec2(X, Y), ImVec2(Y, X), Color);
+
+}
+
+VOID DX11::ImGui_DX11::DrawRectangle(FLOAT X, FLOAT Y, FLOAT Width, FLOAT Height, ImColor Color, FLOAT Thickness)
+{
+	pImGuiDraw = ImGui::GetBackgroundDrawList();
+	pImGuiDraw->AddRect(ImVec2(X, Y), ImVec2(X + Width, Y + Height), Color, 0, 0, Thickness);
+}
+
+void DX11::ImGui_DX11::DrawTriangleFilled(int x1, int y1, int x2, int y2, int x3, int y3, float thickness, ImColor color) {
+	pImGuiDraw = ImGui::GetBackgroundDrawList();
+	// DrawLine(x1, y1, x2, y2, color, thickness);
+	DrawLine(x2, y2, x3, y3, color, thickness);
+	DrawLine(x3, y3, x1, y1, color, thickness); //
+	pImGuiDraw->AddTriangleFilled(ImVec2(x1, y1), ImVec2(x2, y2), ImVec2(x3, y3), color);
+}
+
+void DX11::ImGui_DX11::DrawFilledRect(int x, int y, int w, int h, uint32_t color)
+{
+
+	float a = (color >> 24) & 0xff;
+	float r = (color >> 16) & 0xff;
+	float g = (color >> 8) & 0xff;
+	float b = (color) & 0xff;
+
+	pImGuiDraw->AddRectFilled(ImVec2(x, y - 1), ImVec2(x + w, y + h), ImGui::ColorConvertFloat4ToU32(ImVec4(r / 255.0, g / 255.0, b / 255.0, 1 / 255.0)), 0, 0);
+	pImGuiDraw->AddRectFilled(ImVec2(x, y + 1), ImVec2(x + w, y + h), ImGui::ColorConvertFloat4ToU32(ImVec4(r / 255.0, g / 255.0, b / 255.0, 1 / 255.0)), 0, 0);
+	pImGuiDraw->AddRectFilled(ImVec2(x - 1, y), ImVec2(x + w, y + h), ImGui::ColorConvertFloat4ToU32(ImVec4(r / 255.0, g / 255.0, b / 255.0, 1 / 255.0)), 0, 0);
+	pImGuiDraw->AddRectFilled(ImVec2(x + 1, y), ImVec2(x + w, y + h), ImGui::ColorConvertFloat4ToU32(ImVec4(r / 255.0, g / 255.0, b / 255.0, 1 / 255.0)), 0, 0);
+	pImGuiDraw->AddRectFilled(ImVec2(x, y), ImVec2(x + w, y + h), ImGui::ColorConvertFloat4ToU32(ImVec4(r / 255.0, g / 255.0, b / 255.0, a / 255.0)), 0, 0);
+}
+VOID DX11::ImGui_DX11::DrawFilledRectangle(FLOAT X, FLOAT Y, FLOAT W, FLOAT H, ImColor Color)
+{
+	pImGuiDraw = ImGui::GetBackgroundDrawList();
+	pImGuiDraw->AddRectFilled(ImVec2(X, Y), ImVec2(X - W, Y - H), Color);
+}
+
+VOID DX11::ImGui_DX11::DrawFilledRectangleCurved(float X, float Y, float Width, float Height, ImColor Color, float rounding)
+{
+	ImGui::GetBackgroundDrawList()->AddRectFilled(ImVec2(X, Y),ImVec2(X + Width, Y + Height),Color,rounding,ImDrawCornerFlags_All);
+}
+VOID DX11::ImGui_DX11::DrawUnFilledRectangleCurved(float X, float Y, float Width, float Height, ImColor Color, float rounding)
+{
+	ImGui::GetBackgroundDrawList()->AddRect(ImVec2(X, Y),ImVec2(X + Width, Y + Height),Color,rounding,ImDrawCornerFlags_All);
+}
+VOID DX11::ImGui_DX11::DrawUnFilledRectangle(FLOAT X, FLOAT Y, FLOAT W, FLOAT H, ImColor Color)
+{
+	pImGuiDraw = ImGui::GetBackgroundDrawList();
+
+	pImGuiDraw->AddRect(ImVec2(X, Y), ImVec2(X - W, Y - H), Color, 0, 0, 1);
+}
+VOID DX11::ImGui_DX11::DrawUnFilledRectangle2(FLOAT X, FLOAT Y, FLOAT W, FLOAT H, ImColor Color)
+{
+	pImGuiDraw = ImGui::GetBackgroundDrawList();
+
+	pImGuiDraw->AddRect(ImVec2(X, Y), ImVec2(X + W, Y + H), Color, 0, 0, 1);
+}
+
+
+VOID DX11::ImGui_DX11::DrawFilledCircle(FLOAT X, FLOAT Y, FLOAT Radius, ImColor Color)
+{
+	pImGuiDraw = ImGui::GetBackgroundDrawList();
+	ImGui::GetOverlayDrawList()->AddCircleFilled(ImVec2(X, Y), Radius, Color, 0);
+}
+VOID  DX11::ImGui_DX11::DrawImage(LPDIRECT3DTEXTURE9 img, int x, int y, int sizex, int sizey) {
+	ImGui::GetBackgroundDrawList()->AddImage(img, ImVec2(x, y), ImVec2(x + sizex, y + sizey));
+}
+
+void DX11::ImGui_DX11::DrawBlood(float x, float y, float w, float h, float fBlood)
+{
+
+	if (fBlood > 70.0)
+	{
+
+		DrawFilledRect(x, y, w * fBlood / 100, h, ImColor(0.0f, 1.0f, 0.0f, 1.0f));
+
+	}
+	if (fBlood > 30.0 && fBlood <= 70.0)
+	{
+
+		DrawFilledRect(x, y, w * fBlood / 100, h, ImColor(1.0f, 0.0f, 0.0f, 1.0f));
+
+	}
+	if (fBlood > 0.0 && fBlood <= 30.0)
+	{
+
+		DrawFilledRect(x, y, w * fBlood / 100, h, ImColor(0.0f, 0.0f, 1.0f, 1.0f));
+
+
+	}
+	CornerBox(x, y, w, h, 2, 1.0, ImColor(0.0f, 0.0f, 0.0f, 0.5f));
+}
+void DX11::ImGui_DX11::DrawBlood2(float x, float y, float w, float h, float fBlood)
+{
+
+	if (fBlood > 70.0)
+	{
+
+		DrawFilledRect(x, y, w * fBlood / 100, h, ImColor(0.2f, 0.8f, 1.0f, 1.0f));
+
+	}
+	if (fBlood > 30.0 && fBlood <= 70.0)
+	{
+
+		DrawFilledRect(x, y, w * fBlood / 100, h, ImColor(1.0f, 0.0f, 0.0f, 1.0f));
+
+	}
+	if (fBlood > 0.0 && fBlood <= 30.0)
+	{
+
+		DrawFilledRect(x, y, w * fBlood / 100, h, ImColor(0.0f, 0.0f, 1.0f, 1.0f));
+
+
+	}
+	CornerBox(x, y, w, h, 2, 1.0, ImColor(0.0f, 0.0f, 0.0f, 0.5f));
+}
+
+
+
+
+VOID DX11::ImGui_DX11::DrawString(ImFont* pFont, FLOAT FontSize, string& Text, FLOAT X, FLOAT Y, ImColor Color, bool Center)
+{
+	pImGuiDraw = ImGui::GetBackgroundDrawList();
+
+	if (Center)
+	{
+		ImVec2 TextSize = pFont->CalcTextSizeA(FontSize, FLT_MAX, 0.0f, Text.c_str());
+		pImGuiDraw->AddText(pFont, FontSize, ImVec2(X - TextSize.x / 2.0f, Y), Color, Text.c_str());
+	}
+	else
+	{
+		pImGuiDraw->AddText(pFont, FontSize, ImVec2(X, Y), Color, Text.c_str());
+	}
+}
+
+
+VOID DX11::ImGui_DX11::DrawStringchar(ImFont* pFont, FLOAT FontSize, const char*& Text, FLOAT X, FLOAT Y, ImColor Color, bool Center)
+{
+	pImGuiDraw = ImGui::GetBackgroundDrawList();
+
+	if (Center)
+	{
+		ImVec2 TextSize = pFont->CalcTextSizeA(FontSize, FLT_MAX, 0.0f, Text);
+		pImGuiDraw->AddText(pFont, FontSize, ImVec2(X - TextSize.x / 2.0f, Y), Color, Text);
+	}
+	else
+	{
+		pImGuiDraw->AddText(pFont, FontSize, ImVec2(X, Y), Color, Text);
+	}
+}
+VOID DX11::ImGui_DX11::DrawStringchar1(ImFont* pFont, FLOAT FontSize, char*& Text, FLOAT X, FLOAT Y, ImColor Color, bool Center)
+{
+	pImGuiDraw = ImGui::GetBackgroundDrawList();
+
+	if (Center)
+	{
+		ImVec2 TextSize = pFont->CalcTextSizeA(FontSize, FLT_MAX, 0.0f, Text);
+		pImGuiDraw->AddText(pFont, FontSize, ImVec2(X - TextSize.x / 2.0f, Y), Color, Text);
+	}
+	else
+	{
+		pImGuiDraw->AddText(pFont, FontSize, ImVec2(X, Y), Color, Text);
+	}
+}
+
+void DX11::ImGui_DX11::DrawStrokeText(ImFont* pFont, int x, int y, ImColor Color, const char* str, float fontsize, bool center)
+{
+	if (center)
+	{
+		auto textisze = pFont->CalcTextSizeA(fontsize, FLT_MAX, 0, str);
+		x -= textisze.x / 2;
+		y -= textisze.y / 2;
+	}
+	ImFont a;
+	ImGui::GetOverlayDrawList()->AddText(pFont, fontsize, ImVec2(x - 0.1, y), ImGui::ColorConvertFloat4ToU32(ImVec4(0 / 255.0, 0 / 255.0, 0 / 255.0, 255 / 255.0)), str);
+	ImGui::GetOverlayDrawList()->AddText(pFont, fontsize, ImVec2(x + 0.1, y), ImGui::ColorConvertFloat4ToU32(ImVec4(0 / 255.0, 0 / 255.0, 0 / 255.0, 255 / 255.0)), str);
+	ImGui::GetOverlayDrawList()->AddText(pFont, fontsize, ImVec2(x, y - 0.1), ImGui::ColorConvertFloat4ToU32(ImVec4(0 / 255.0, 0 / 255.0, 0 / 255.0, 255 / 255.0)), str);
+	ImGui::GetOverlayDrawList()->AddText(pFont, fontsize, ImVec2(x, y + 0.1), ImGui::ColorConvertFloat4ToU32(ImVec4(0 / 255.0, 0 / 255.0, 0 / 255.0, 255 / 255.0)), str);
+	ImGui::GetOverlayDrawList()->AddText(pFont, fontsize, ImVec2(x, y), Color, str);
+}
+VOID DX11::ImGui_DX11::DrawWStringBorderText(ImFont* pFont, FLOAT size, const char* str, FLOAT x, FLOAT y, ImColor Color, bool Center)
+{
+
+	//ImGui::GetOverlayDrawList()->AddText(pFont, size, ImVec2(x, y), ImGui::ColorConvertFloat4ToU32(ImVec4(color->R / 255.0, color->G / 255.0, color->B / 255.0, color->A / 255.0)), utf_8_1.c_str());
+	if (Center)
+	{
+		ImVec2 TextSize = pFont->CalcTextSizeA(size, FLT_MAX, 0.0f, str);
+		//ImGui::GetOverlayDrawList()->AddText(pFont, size, ImVec2(x, y), ImGui::ColorConvertFloat4ToU32(ImVec4(color->R / 255.0, color->G / 255.0, color->B / 255.0, color->A / 255.0)), utf_8_1.c_str());
+		ImGui::GetOverlayDrawList()->AddText(pFont, size, ImVec2((x - TextSize.x / 2.0f) - 0.1, y), ImGui::ColorConvertFloat4ToU32(ImVec4(0 / 255.0, 0 / 255.0, 0 / 255.0, 255 / 255.0)), str);
+		ImGui::GetOverlayDrawList()->AddText(pFont, size, ImVec2((x - TextSize.x / 2.0f) + 0.1, y), ImGui::ColorConvertFloat4ToU32(ImVec4(0 / 255.0, 0 / 255.0, 0 / 255.0, 255 / 255.0)), str);
+		ImGui::GetOverlayDrawList()->AddText(pFont, size, ImVec2((x - TextSize.x / 2.0f), y - 0.1), ImGui::ColorConvertFloat4ToU32(ImVec4(0 / 255.0, 0 / 255.0, 0 / 255.0, 255 / 255.0)), str);
+		ImGui::GetOverlayDrawList()->AddText(pFont, size, ImVec2((x - TextSize.x / 2.0f), y + 0.1), ImGui::ColorConvertFloat4ToU32(ImVec4(0 / 255.0, 0 / 255.0, 0 / 255.0, 255 / 255.0)), str);
+		ImGui::GetOverlayDrawList()->AddText(pFont, size, ImVec2((x - TextSize.x / 2.0f), y), Color, str);
+	}
+	else
+	{
+
+		ImGui::GetOverlayDrawList()->AddText(pFont, size, ImVec2(x - 0.1, y), ImGui::ColorConvertFloat4ToU32(ImVec4(0 / 255.0, 0 / 255.0, 0 / 255.0, 255 / 255.0)), str);
+		ImGui::GetOverlayDrawList()->AddText(pFont, size, ImVec2(x + 0.1, y), ImGui::ColorConvertFloat4ToU32(ImVec4(0 / 255.0, 0 / 255.0, 0 / 255.0, 255 / 255.0)), str);
+		ImGui::GetOverlayDrawList()->AddText(pFont, size, ImVec2(x, y - 0.1), ImGui::ColorConvertFloat4ToU32(ImVec4(0 / 255.0, 0 / 255.0, 0 / 255.0, 255 / 255.0)), str);
+		ImGui::GetOverlayDrawList()->AddText(pFont, size, ImVec2(x, y + 0.1), ImGui::ColorConvertFloat4ToU32(ImVec4(0 / 255.0, 0 / 255.0, 0 / 255.0, 255 / 255.0)), str);
+		ImGui::GetOverlayDrawList()->AddText(pFont, size, ImVec2(x, y), Color, str);
+	}
+}
+VOID DX11::ImGui_DX11::DrawBorderString(ImFont* pFont, FLOAT size, string& Text, FLOAT x, FLOAT y, ImColor Color, bool Center)
+{
+
+	std::string utf_8_1 = std::string(Text);
+	std::string utf_8_2 = string_To_UTF8(utf_8_1);
+	//ImGui::GetOverlayDrawList()->AddText(pFont, size, ImVec2(x, y), ImGui::ColorConvertFloat4ToU32(ImVec4(color->R / 255.0, color->G / 255.0, color->B / 255.0, color->A / 255.0)), utf_8_1.c_str());
+	ImGui::GetOverlayDrawList()->AddText(pFont, size, ImVec2(x + DiffX, y - 1 + DiffY), ImGui::ColorConvertFloat4ToU32(ImVec4(1 / 255.0, 1 / 255.0, 1 / 255.0, 255 / 255.0)), utf_8_1.c_str());
+	ImGui::GetOverlayDrawList()->AddText(pFont, size, ImVec2(x + DiffX, y + 1 + DiffY), ImGui::ColorConvertFloat4ToU32(ImVec4(1 / 255.0, 1 / 255.0, 1 / 255.0, 255 / 255.0)), utf_8_1.c_str());
+	ImGui::GetOverlayDrawList()->AddText(pFont, size, ImVec2(x - 1 + DiffX, y + DiffY), ImGui::ColorConvertFloat4ToU32(ImVec4(1 / 255.0, 1 / 255.0, 1 / 255.0, 255 / 255.0)), utf_8_1.c_str());
+	ImGui::GetOverlayDrawList()->AddText(pFont, size, ImVec2(x + 1 + DiffX, y + DiffY), ImGui::ColorConvertFloat4ToU32(ImVec4(1 / 255.0, 1 / 255.0, 1 / 255.0, 255 / 255.0)), utf_8_1.c_str());
+	ImGui::GetOverlayDrawList()->AddText(pFont, size, ImVec2(x + DiffX, y + DiffY), Color, utf_8_1.c_str());
+}
+
+VOID DX11::ImGui_DX11::DrawBorderText(ImFont* pFont, FLOAT size, string& Text, FLOAT x, FLOAT y, ImColor Color, bool Center)
+{
+	std::string utf_8_1 = std::string(Text);
+	std::string utf_8_2 = string_To_UTF8(utf_8_1);
+	//ImGui::GetOverlayDrawList()->AddText(pFont, size, ImVec2(x, y), ImGui::ColorConvertFloat4ToU32(ImVec4(color->R / 255.0, color->G / 255.0, color->B / 255.0, color->A / 255.0)), utf_8_1.c_str());
+	if (Center)
+	{
+		ImVec2 TextSize = pFont->CalcTextSizeA(size, FLT_MAX, 0.0f, Text.c_str());
+		//ImGui::GetOverlayDrawList()->AddText(pFont, size, ImVec2(x, y), ImGui::ColorConvertFloat4ToU32(ImVec4(color->R / 255.0, color->G / 255.0, color->B / 255.0, color->A / 255.0)), utf_8_1.c_str());
+		ImGui::GetOverlayDrawList()->AddText(pFont, size, ImVec2((x - TextSize.x / 2.0f) + DiffX, y - 1 + DiffY), ImGui::ColorConvertFloat4ToU32(ImVec4(1 / 255.0, 1 / 255.0, 1 / 255.0, 255 / 255.0)), utf_8_1.c_str());
+		ImGui::GetOverlayDrawList()->AddText(pFont, size, ImVec2((x - TextSize.x / 2.0f) + DiffX, y + 1 + DiffY), ImGui::ColorConvertFloat4ToU32(ImVec4(1 / 255.0, 1 / 255.0, 1 / 255.0, 255 / 255.0)), utf_8_1.c_str());
+		ImGui::GetOverlayDrawList()->AddText(pFont, size, ImVec2((x - TextSize.x / 2.0f) - 1 + DiffX, y + DiffY), ImGui::ColorConvertFloat4ToU32(ImVec4(1 / 255.0, 1 / 255.0, 1 / 255.0, 255 / 255.0)), utf_8_1.c_str());
+		ImGui::GetOverlayDrawList()->AddText(pFont, size, ImVec2((x - TextSize.x / 2.0f) + 1 + DiffX, y + DiffY), ImGui::ColorConvertFloat4ToU32(ImVec4(1 / 255.0, 1 / 255.0, 1 / 255.0, 255 / 255.0)), utf_8_1.c_str());
+		ImGui::GetOverlayDrawList()->AddText(pFont, size, ImVec2((x - TextSize.x / 2.0f) + DiffX, y + DiffY), Color, utf_8_1.c_str());
+	}
+	else
+	{
+
+		ImGui::GetOverlayDrawList()->AddText(pFont, size, ImVec2(x + DiffX, y - 1 + DiffY), ImGui::ColorConvertFloat4ToU32(ImVec4(1 / 255.0, 1 / 255.0, 1 / 255.0, 255 / 255.0)), utf_8_1.c_str());
+		ImGui::GetOverlayDrawList()->AddText(pFont, size, ImVec2(x + DiffX, y + 1 + DiffY), ImGui::ColorConvertFloat4ToU32(ImVec4(1 / 255.0, 1 / 255.0, 1 / 255.0, 255 / 255.0)), utf_8_1.c_str());
+		ImGui::GetOverlayDrawList()->AddText(pFont, size, ImVec2(x - 1 + DiffX, y + DiffY), ImGui::ColorConvertFloat4ToU32(ImVec4(1 / 255.0, 1 / 255.0, 1 / 255.0, 255 / 255.0)), utf_8_1.c_str());
+		ImGui::GetOverlayDrawList()->AddText(pFont, size, ImVec2(x + 1 + DiffX, y + DiffY), ImGui::ColorConvertFloat4ToU32(ImVec4(1 / 255.0, 1 / 255.0, 1 / 255.0, 255 / 255.0)), utf_8_1.c_str());
+		ImGui::GetOverlayDrawList()->AddText(pFont, size, ImVec2(x + DiffX, y + DiffY), Color, utf_8_1.c_str());
+	}
+}
+
+VOID DX11::ImGui_DX11::DrawCharBorderText(ImFont* pFont, FLOAT size, const char* str, FLOAT x, FLOAT y, ImColor Color, bool Center)
+{
+	std::string utf_8_1 = std::string(str);
+	std::string utf_8_2 = string_To_UTF8(utf_8_1);
+	//ImGui::GetOverlayDrawList()->AddText(pFont, size, ImVec2(x, y), ImGui::ColorConvertFloat4ToU32(ImVec4(color->R / 255.0, color->G / 255.0, color->B / 255.0, color->A / 255.0)), utf_8_1.c_str());
+	if (Center)
+	{
+		ImVec2 TextSize = pFont->CalcTextSizeA(size, FLT_MAX, 0.0f, str);
+		//ImGui::GetOverlayDrawList()->AddText(pFont, size, ImVec2(x, y), ImGui::ColorConvertFloat4ToU32(ImVec4(color->R / 255.0, color->G / 255.0, color->B / 255.0, color->A / 255.0)), utf_8_1.c_str());
+		ImGui::GetOverlayDrawList()->AddText(pFont, size, ImVec2((x - TextSize.x / 2.0f) + DiffX, y - 1 + DiffY), ImGui::ColorConvertFloat4ToU32(ImVec4(1 / 255.0, 1 / 255.0, 1 / 255.0, 255 / 255.0)), utf_8_1.c_str());
+		ImGui::GetOverlayDrawList()->AddText(pFont, size, ImVec2((x - TextSize.x / 2.0f) + DiffX, y + 1 + DiffY), ImGui::ColorConvertFloat4ToU32(ImVec4(1 / 255.0, 1 / 255.0, 1 / 255.0, 255 / 255.0)), utf_8_1.c_str());
+		ImGui::GetOverlayDrawList()->AddText(pFont, size, ImVec2((x - TextSize.x / 2.0f) - 1 + DiffX, y + DiffY), ImGui::ColorConvertFloat4ToU32(ImVec4(1 / 255.0, 1 / 255.0, 1 / 255.0, 255 / 255.0)), utf_8_1.c_str());
+		ImGui::GetOverlayDrawList()->AddText(pFont, size, ImVec2((x - TextSize.x / 2.0f) + 1 + DiffX, y + DiffY), ImGui::ColorConvertFloat4ToU32(ImVec4(1 / 255.0, 1 / 255.0, 1 / 255.0, 255 / 255.0)), utf_8_1.c_str());
+		ImGui::GetOverlayDrawList()->AddText(pFont, size, ImVec2((x - TextSize.x / 2.0f) + DiffX, y + DiffY), Color, utf_8_1.c_str());
+	}
+	else
+	{
+
+		ImGui::GetOverlayDrawList()->AddText(pFont, size, ImVec2(x + DiffX, y - 1 + DiffY), ImGui::ColorConvertFloat4ToU32(ImVec4(1 / 255.0, 1 / 255.0, 1 / 255.0, 255 / 255.0)), utf_8_1.c_str());
+		ImGui::GetOverlayDrawList()->AddText(pFont, size, ImVec2(x + DiffX, y + 1 + DiffY), ImGui::ColorConvertFloat4ToU32(ImVec4(1 / 255.0, 1 / 255.0, 1 / 255.0, 255 / 255.0)), utf_8_1.c_str());
+		ImGui::GetOverlayDrawList()->AddText(pFont, size, ImVec2(x - 1 + DiffX, y + DiffY), ImGui::ColorConvertFloat4ToU32(ImVec4(1 / 255.0, 1 / 255.0, 1 / 255.0, 255 / 255.0)), utf_8_1.c_str());
+		ImGui::GetOverlayDrawList()->AddText(pFont, size, ImVec2(x + 1 + DiffX, y + DiffY), ImGui::ColorConvertFloat4ToU32(ImVec4(1 / 255.0, 1 / 255.0, 1 / 255.0, 255 / 255.0)), utf_8_1.c_str());
+		ImGui::GetOverlayDrawList()->AddText(pFont, size, ImVec2(x + DiffX, y + DiffY), Color, utf_8_1.c_str());
+	}
+}
+void DX11::ImGui_DX11::DrawTriangle(int x1, int y1, int x2, int y2, int x3, int y3, float thickness, ImColor color) {
+	pImGuiDraw = ImGui::GetBackgroundDrawList();
+	DrawLine(x1, y1, x2, y2, color, thickness);
+	DrawLine(x2, y2, x3, y3, color, thickness);
+	DrawLine(x3, y3, x1, y1, color, thickness);
+}
+VOID DX11::ImGui_DX11::SpText(ImFont* pFont, FLOAT FontSize, string& Text, FLOAT X, FLOAT Y, ImColor Color, bool Center)
+{
+	pImGuiDraw = ImGui::GetBackgroundDrawList();
+
+	if (Center)
+	{
+		ImVec2 TextSize = pFont->CalcTextSizeA(FontSize, FLT_MAX, 0.0f, Text.c_str());
+		pImGuiDraw->AddText(pFont, FontSize, ImVec2((X - TextSize.x / 2.0f) + 1.0f, Y + 1.0f), Color, Text.c_str());
+		pImGuiDraw->AddText(pFont, FontSize, ImVec2((X - TextSize.x / 2.0f) - 1.0f, Y - 1.0f), Color, Text.c_str());
+		pImGuiDraw->AddText(pFont, FontSize, ImVec2((X - TextSize.x / 2.0f) + 1.0f, Y - 1.0f), Color, Text.c_str());
+		pImGuiDraw->AddText(pFont, FontSize, ImVec2((X - TextSize.x / 2.0f) - 1.0f, Y + 1.0f), Color, Text.c_str());
+		pImGuiDraw->AddText(pFont, FontSize, ImVec2(X - TextSize.x / 2.0f, Y), Color, Text.c_str());
+	}
+	else
+	{
+		pImGuiDraw->AddText(pFont, FontSize, ImVec2(X, Y - 2.0f), Color, Text.c_str());
+		pImGuiDraw->AddText(pFont, FontSize, ImVec2(X, Y + 2.0f), Color, Text.c_str());
+		pImGuiDraw->AddText(pFont, FontSize, ImVec2(X - 2.0f, Y), Color, Text.c_str());
+		pImGuiDraw->AddText(pFont, FontSize, ImVec2(X + 2.0f, Y), Color, Text.c_str());
+		pImGuiDraw->AddText(pFont, FontSize, ImVec2(X, Y), Color, Text.c_str());
+	}
+}
+
+void DX11::ImGui_DX11::RenderCircleFilled(const ImVec2& position, float radius, uint32_t color)
+{
+	ImGuiWindow* window = ImGui::GetCurrentWindow();
+
+	float a = (color >> 24) & 0xff;
+	float r = (color >> 16) & 0xff;
+	float g = (color >> 8) & 0xff;
+	float b = (color) & 0xff;
+
+	window->DrawList->AddCircleFilled(position, radius, ImGui::GetColorU32({ r / 255.0f, g / 255.0f, b / 255.0f, a / 255.0f }), radius);
+}
+void DX11::ImGui_DX11::RenderLine(const ImVec2& from, const ImVec2& to, uint32_t color, float thickness)
+{
+	pImGuiDraw = ImGui::GetBackgroundDrawList();
+
+	float a = (color >> 24) & 0xff;
+	float r = (color >> 16) & 0xff;
+	float g = (color >> 8) & 0xff;
+	float b = (color) & 0xff;
+
+	pImGuiDraw->AddLine(from, to, ImGui::GetColorU32({ r / 255.0f, g / 255.0f, b / 255.0f, a / 255.0f }), thickness);
+}
+void DX11::ImGui_DX11::DrawCrosshair(CrosshairStyle style, float x, float y, float size, float stroke, ImColor color)
+{
+	pImGuiDraw = ImGui::GetBackgroundDrawList();
+	if (style == CrosshairStyle::Dot)
+	{
+		DrawCircle2(x, y, size, color);
+	}
+	else if (style == CrosshairStyle::Plus)
+	{
+		DrawLine(x - size, y, x + size, y, color, stroke);
+		DrawLine(x, y - size, x, y + size, color, stroke);
+	}
+	else if (style == CrosshairStyle::Cross)
+	{
+		DrawLine(x - size, y - size, x + size, y + size, color, stroke);
+		DrawLine(x + size, y - size, x - size, y + size, color, stroke);
+	}
+	else if (style == CrosshairStyle::Gap)
+	{
+		DrawLine(x - size - stroke, y, x - stroke, y, color, stroke);
+		DrawLine(x + size + stroke, y, x + stroke, y, color, stroke);
+		DrawLine(x, y - size - stroke, x, y - stroke, color, stroke);
+		DrawLine(x, y + size + stroke, x, y + stroke, color, stroke);
+	}
+	//else if (style == CrosshairStyle::Diagonal)
+	//{
+	//	RenderLine(ImVec2(x - size, y - size), ImVec2(x + size, y + size), color, stroke);
+	//	RenderLine(ImVec2(x + size, y - size), ImVec2(x - size, y + size), color, stroke);
+	//}
+	else if (style == CrosshairStyle::Swastika)
+	{
+		ImVec2 first = ImVec2(x - size, y);
+		ImVec2 second = ImVec2(x + size, y);
+		ImVec2 third = ImVec2(x, y - size);
+		ImVec2 fourth = ImVec2(x, y + size);
+		ImVec2 haken_1 = ImVec2(third.x + size, third.y);
+		ImVec2 haken_2 = ImVec2(second.x, second.y + size);
+		ImVec2 haken_3 = ImVec2(fourth.x - size, fourth.y);
+		ImVec2 haken_4 = ImVec2(first.x, first.y - size);
+		RenderLine(first, second, color, stroke);
+		RenderLine(third, fourth, color, stroke);
+		RenderLine(third, haken_1, color, stroke);
+		RenderLine(second, haken_2, color, stroke);
+		RenderLine(fourth, haken_3, color, stroke);
+		RenderLine(first, haken_4, color, stroke);
+	}
+	else if (style == CrosshairStyle::HitMaker)
+	{
+		float flScreenPosCenter[2];
+		flScreenPosCenter[0] = x;
+		flScreenPosCenter[1] = y;
+
+		const int iLineSize = size;
+
+		DrawLine(flScreenPosCenter[0] - iLineSize, flScreenPosCenter[1] - iLineSize, flScreenPosCenter[0] - iLineSize / 4, flScreenPosCenter[1] - iLineSize / 4, color, stroke);
+		DrawLine(flScreenPosCenter[0] - iLineSize, flScreenPosCenter[1] + iLineSize, flScreenPosCenter[0] - iLineSize / 4, flScreenPosCenter[1] + iLineSize / 4, color, stroke);
+		DrawLine(flScreenPosCenter[0] + iLineSize, flScreenPosCenter[1] + iLineSize, flScreenPosCenter[0] + iLineSize / 4, flScreenPosCenter[1] + iLineSize / 4, color, stroke);
+		DrawLine(flScreenPosCenter[0] + iLineSize, flScreenPosCenter[1] - iLineSize, flScreenPosCenter[0] + iLineSize / 4, flScreenPosCenter[1] - iLineSize / 4, color, stroke);
+
+	}
+}
+
+float hpcoler[] = { 0.0f, 0.0f, 1.0f, 1.0f };
+float fuel[] = { 0.97f, 0.97f, 0.97f, 1.000f };
+
+void DX11::ImGui_DX11::DrawHPVEH(float x, float y, float w, float h, float fBlood)
+{
+	if (fBlood > 70.0)
+	{
+
+		DrawFilledRect(x, y, w * fBlood / 100, h, ImColor(hpcoler[0], hpcoler[1], hpcoler[2], hpcoler[3]));
+
+	}
+	if (fBlood > 30.0 && fBlood <= 70.0)
+	{
+
+		DrawFilledRect(x, y, w * fBlood / 100, h, ImColor(hpcoler[0], hpcoler[1], hpcoler[2], hpcoler[3]));
+
+	}
+	if (fBlood > 0.0 && fBlood <= 30.0)
+	{
+
+		DrawFilledRect(x, y, w * fBlood / 100, h, ImColor(hpcoler[0], hpcoler[1], hpcoler[2], hpcoler[3]));
+
+
+	}
+}
+
+void DX11::ImGui_DX11::DrawOailVEH(float x, float y, float w, float h, float fBlood)
+{
+	if (fBlood > 70.0)
+	{
+		DrawFilledRect(x, y, w * fBlood / 100, h, ImColor(fuel[0], fuel[1], fuel[2], fuel[3]));
+	}
+	if (fBlood > 30.0 && fBlood <= 70.0)
+	{
+		DrawFilledRect(x, y, w * fBlood / 100, h, ImColor(fuel[0], fuel[1], fuel[2], fuel[3]));
+	}
+	if (fBlood > 0.0 && fBlood <= 30.0)
+	{
+		DrawFilledRect(x, y, w * fBlood / 100, h, ImColor(fuel[0], fuel[1], fuel[2], fuel[3]));
+	}
+}

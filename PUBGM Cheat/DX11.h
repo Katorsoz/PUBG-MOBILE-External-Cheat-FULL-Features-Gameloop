@@ -1,0 +1,941 @@
+﻿#pragma once
+#include <d3d9.h>
+#include "Microsoft-DirectX-SDK\Include\d3dx9core.h"
+
+
+#include <d3dcompiler.h>
+#include <DirectXMath.h>
+#include <DirectXColors.h>
+#include "Microsoft-DirectX-SDK\Include\xnamath.h"
+#pragma comment (lib, "d3d9.lib")
+#pragma comment (lib, "d3dx9.lib")
+#pragma comment (lib, "d3dcompiler.lib")
+
+
+#include "Includes.h"
+
+#include "imgui-docking/imgui.h"
+#include "imgui-docking/imgui_impl_win32.h"
+#include "imgui-docking/imgui_impl_dx11.h"
+#include "imgui-docking/imgui_internal.h"
+
+const char VertexShader[] =
+{
+"struct VS_OUTPUT\n"
+"{\n"
+	"float4 Pos : SV_POSITION;\n"
+	"float4 Color : COLOR;\n"
+"};\n"
+"VS_OUTPUT VS(float4 inPos : POSITION, float4 inColor : COLOR)\n"
+"{\n"
+	"VS_OUTPUT output;\n"
+
+	"output.Pos = inPos;\n"
+	"output.Color = inColor;\n"
+
+	"return output;\n"
+"}\n"
+};
+
+const char PixelShader[] =
+{
+"struct VS_OUTPUT\n"
+"{\n"
+"float4 Pos : SV_POSITION;\n"
+"float4 Color : COLOR;\n"
+"};\n"
+"float4 PS(VS_OUTPUT input) : SV_TARGET\n"
+"{\n"
+"return input.Color;\n"
+"}\n"
+};
+
+
+
+
+
+struct VERTEX
+{
+	XMFLOAT3 Pos;
+	XMFLOAT4 Color;
+};
+
+namespace DX11
+{
+
+	enum CrosshairStyle
+	{
+		Dot,
+		Plus,
+		Cross,
+		Gap,
+		Diagonal,
+		Swastika,
+		HitMaker
+	};
+
+	extern FLOAT alpha;
+	extern 	LPDIRECT3DDEVICE9 pDevice;
+	extern 	IDirect3DSwapChain9* SwapChain;
+	extern 	LPDIRECT3D9  pD3D;
+	extern 	D3DPRESENT_PARAMETERS d3dpp;
+	extern 	 LPD3DXFONT pPlayerNameFont;
+
+
+	extern LPDIRECT3DTEXTURE9 RedArrow;
+	extern LPDIRECT3DTEXTURE9 GreenArrow;
+	extern LPDIRECT3DTEXTURE9 WhiteArrow;
+	extern LPDIRECT3DTEXTURE9 TotalEnemy;
+	extern LPDIRECT3DTEXTURE9 redzone;
+	extern LPDIRECT3DTEXTURE9 GameCoin;
+	extern LPDIRECT3DTEXTURE9 MainMenu;
+
+	extern LPDIRECT3DTEXTURE9 Image;
+	extern LPDIRECT3DTEXTURE9 Heart;
+	extern LPDIRECT3DTEXTURE9 LeftMenu;
+	extern LPDIRECT3DTEXTURE9 AirDrop;
+	extern LPDIRECT3DTEXTURE9 DeadBox;
+
+
+	extern LPDIRECT3DTEXTURE9 SnowBoard;
+	extern LPDIRECT3DTEXTURE9 Helicopter;
+	extern LPDIRECT3DTEXTURE9 BRDM;
+	extern LPDIRECT3DTEXTURE9 Scooter;
+	extern LPDIRECT3DTEXTURE9 Motorcycle;
+	extern LPDIRECT3DTEXTURE9 Motorcycle3;
+	extern LPDIRECT3DTEXTURE9 Bike;
+	extern LPDIRECT3DTEXTURE9 Snowmobile;
+	extern LPDIRECT3DTEXTURE9 SnowBike;
+	extern LPDIRECT3DTEXTURE9 Tuk;
+	extern LPDIRECT3DTEXTURE9 Buggy;
+	extern LPDIRECT3DTEXTURE9 Dacia;
+	extern LPDIRECT3DTEXTURE9 Rony;
+	extern LPDIRECT3DTEXTURE9 UAZ;
+	extern LPDIRECT3DTEXTURE9 PG117;
+	extern LPDIRECT3DTEXTURE9 Aquarail;
+	extern LPDIRECT3DTEXTURE9 Coupe;
+	extern LPDIRECT3DTEXTURE9 Glider;
+	extern LPDIRECT3DTEXTURE9 BigFoot;
+	extern LPDIRECT3DTEXTURE9 Capsule;
+	extern LPDIRECT3DTEXTURE9 UTV;
+	extern LPDIRECT3DTEXTURE9 Beach_Buggy;
+	extern LPDIRECT3DTEXTURE9 ATV2;
+	extern LPDIRECT3DTEXTURE9 Sportsa;
+	extern LPDIRECT3DTEXTURE9 Sports;
+	extern LPDIRECT3DTEXTURE9 CoupeRB;
+	extern LPDIRECT3DTEXTURE9 Tesla;
+	extern LPDIRECT3DTEXTURE9 Minibus;
+	extern LPDIRECT3DTEXTURE9 Gravity;
+	extern LPDIRECT3DTEXTURE9 Motorglider;
+	extern LPDIRECT3DTEXTURE9 PickUpTruck;
+	extern LPDIRECT3DTEXTURE9 Plane;
+
+	extern LPDIRECT3DTEXTURE9 Hand1;
+	extern LPDIRECT3DTEXTURE9 Hand2;
+	extern LPDIRECT3DTEXTURE9 Hand3;
+	extern LPDIRECT3DTEXTURE9 Hand4;
+	extern LPDIRECT3DTEXTURE9 Hand5;
+	extern LPDIRECT3DTEXTURE9 Hand6;
+	extern LPDIRECT3DTEXTURE9 Hand7;
+	extern LPDIRECT3DTEXTURE9 Hand8;
+	extern LPDIRECT3DTEXTURE9 Hand9;
+	extern LPDIRECT3DTEXTURE9 Hand10;
+	extern LPDIRECT3DTEXTURE9 Hand11;
+	extern LPDIRECT3DTEXTURE9 Hand12;
+	extern LPDIRECT3DTEXTURE9 Hand13;
+	extern LPDIRECT3DTEXTURE9 Hand14;
+	extern LPDIRECT3DTEXTURE9 Hand15;
+	extern LPDIRECT3DTEXTURE9 Hand16;
+	extern LPDIRECT3DTEXTURE9 Hand17;
+	extern LPDIRECT3DTEXTURE9 Hand18;
+	extern LPDIRECT3DTEXTURE9 Hand19;
+	extern LPDIRECT3DTEXTURE9 Hand20;
+	extern LPDIRECT3DTEXTURE9 Hand21;
+	extern LPDIRECT3DTEXTURE9 Hand22;
+	extern LPDIRECT3DTEXTURE9 Hand23;
+	extern LPDIRECT3DTEXTURE9 Hand24;
+	extern LPDIRECT3DTEXTURE9 Hand25;
+	extern LPDIRECT3DTEXTURE9 Hand26;
+	extern LPDIRECT3DTEXTURE9 Hand27;
+	extern LPDIRECT3DTEXTURE9 Hand28;
+	extern LPDIRECT3DTEXTURE9 Hand29;
+	extern LPDIRECT3DTEXTURE9 Hand30;
+	extern LPDIRECT3DTEXTURE9 Hand31;
+	extern LPDIRECT3DTEXTURE9 Hand32;
+	extern LPDIRECT3DTEXTURE9 Hand33;
+	extern LPDIRECT3DTEXTURE9 Hand34;
+	extern LPDIRECT3DTEXTURE9 Hand35;
+	extern LPDIRECT3DTEXTURE9 Hand36;
+	extern LPDIRECT3DTEXTURE9 Hand37;
+	extern LPDIRECT3DTEXTURE9 Hand38;
+	extern LPDIRECT3DTEXTURE9 Hand39;
+	extern LPDIRECT3DTEXTURE9 Hand40;
+	extern LPDIRECT3DTEXTURE9 Hand41;
+	extern LPDIRECT3DTEXTURE9 Hand42;
+	extern LPDIRECT3DTEXTURE9 Hand43;
+	extern LPDIRECT3DTEXTURE9 Hand44;
+	extern LPDIRECT3DTEXTURE9 Hand45;
+	extern LPDIRECT3DTEXTURE9 Hand46;
+	extern LPDIRECT3DTEXTURE9 Hand47;
+	extern LPDIRECT3DTEXTURE9 Hand48;
+	extern LPDIRECT3DTEXTURE9 Hand49;
+	extern LPDIRECT3DTEXTURE9 Hand50;
+	extern LPDIRECT3DTEXTURE9 Hand51;
+	extern LPDIRECT3DTEXTURE9 Hand52;
+	extern LPDIRECT3DTEXTURE9 Hand53;
+	extern LPDIRECT3DTEXTURE9 Hand54;
+	extern LPDIRECT3DTEXTURE9 Hand55;
+	extern LPDIRECT3DTEXTURE9 Hand56;
+	extern LPDIRECT3DTEXTURE9 Hand57;
+	extern LPDIRECT3DTEXTURE9 Hand58;
+	extern LPDIRECT3DTEXTURE9 Hand59;
+	extern LPDIRECT3DTEXTURE9 Hand60;
+
+
+	extern LPDIRECT3DTEXTURE9 AKM;
+	extern LPDIRECT3DTEXTURE9 FLAREGUN;
+
+	extern LPDIRECT3DTEXTURE9 Helmet3;
+	extern LPDIRECT3DTEXTURE9 Bag3;
+	extern LPDIRECT3DTEXTURE9 Armor3;
+	extern LPDIRECT3DTEXTURE9 SX8a;
+	extern LPDIRECT3DTEXTURE9 SX6a;
+	extern LPDIRECT3DTEXTURE9 molotova;
+	extern LPDIRECT3DTEXTURE9 grenadea;
+	extern LPDIRECT3DTEXTURE9 ammo5a;
+	extern LPDIRECT3DTEXTURE9 ammo7a;
+
+#pragma endregion Ammos
+
+	extern LPDIRECT3DTEXTURE9 Amm5 ;
+	extern LPDIRECT3DTEXTURE9 Amm7 ;
+	extern LPDIRECT3DTEXTURE9 Amm9 ;
+	extern LPDIRECT3DTEXTURE9 Amm12 ;
+	extern LPDIRECT3DTEXTURE9 Amm45 ;
+	extern LPDIRECT3DTEXTURE9 Amm300 ;
+	extern LPDIRECT3DTEXTURE9 AmmoBow ;
+	extern LPDIRECT3DTEXTURE9 AmmoFlare ;
+
+#pragma endregion Armors
+
+	extern LPDIRECT3DTEXTURE9 VestV1 ;
+	extern LPDIRECT3DTEXTURE9 VestV2 ;
+	extern LPDIRECT3DTEXTURE9 VestV3 ;
+	extern LPDIRECT3DTEXTURE9 HelmetV1 ;
+	extern LPDIRECT3DTEXTURE9 HelmetV2 ;
+	extern LPDIRECT3DTEXTURE9 HelmetV3 ;
+	extern LPDIRECT3DTEXTURE9 BagV1 ;
+	extern LPDIRECT3DTEXTURE9 BagV2 ;
+	extern LPDIRECT3DTEXTURE9 BagV3 ;
+
+#pragma endregion Weapons
+
+	extern LPDIRECT3DTEXTURE9 AUG ;
+	extern LPDIRECT3DTEXTURE9 M416 ;
+	extern LPDIRECT3DTEXTURE9 M762 ;
+	extern LPDIRECT3DTEXTURE9 SCARL ;
+	extern LPDIRECT3DTEXTURE9 AK ;
+	extern LPDIRECT3DTEXTURE9 M16A4 ;
+	extern LPDIRECT3DTEXTURE9 Groza ;
+	extern LPDIRECT3DTEXTURE9 Mk47 ;
+	extern LPDIRECT3DTEXTURE9 G36 ;
+	extern LPDIRECT3DTEXTURE9 QBZ ;
+	extern LPDIRECT3DTEXTURE9 FAMAS;
+
+#pragma endregion Other Weapon
+
+	extern LPDIRECT3DTEXTURE9 M249 ;
+	extern LPDIRECT3DTEXTURE9 MG3 ;
+	extern LPDIRECT3DTEXTURE9 DP28 ;
+	extern LPDIRECT3DTEXTURE9 CrossBow ;
+
+#pragma endregion SMG
+
+	extern LPDIRECT3DTEXTURE9 MP5K ;
+	extern LPDIRECT3DTEXTURE9 PP19 ;
+	extern LPDIRECT3DTEXTURE9 P90;
+	extern LPDIRECT3DTEXTURE9 TommyGun ;
+	extern LPDIRECT3DTEXTURE9 UMP9 ;
+	extern LPDIRECT3DTEXTURE9 Uzi ;
+	extern LPDIRECT3DTEXTURE9 Vector ;
+
+#pragma endregion ShotGun
+
+	extern LPDIRECT3DTEXTURE9 DP12 ;
+	extern LPDIRECT3DTEXTURE9 S12K ;
+	extern LPDIRECT3DTEXTURE9 S686 ;
+	extern LPDIRECT3DTEXTURE9 S1897 ;
+	extern LPDIRECT3DTEXTURE9 SawedOff ;
+	extern LPDIRECT3DTEXTURE9 DBS ;
+	extern LPDIRECT3DTEXTURE9 M1014 ;
+
+#pragma endregion Pistol
+
+	extern LPDIRECT3DTEXTURE9 DesertEagle ;
+	extern LPDIRECT3DTEXTURE9 Flaregun ;
+	extern LPDIRECT3DTEXTURE9 P18C ;
+	extern LPDIRECT3DTEXTURE9 P92 ;
+	extern LPDIRECT3DTEXTURE9 P1911 ;
+	extern LPDIRECT3DTEXTURE9 R45 ;
+	extern LPDIRECT3DTEXTURE9 R1895 ;
+	extern LPDIRECT3DTEXTURE9 Vz61 ;
+
+#pragma endregion Melee Weapon
+
+	extern LPDIRECT3DTEXTURE9 Cowbar ;
+	extern LPDIRECT3DTEXTURE9 Machete ;
+	extern LPDIRECT3DTEXTURE9 Pan ;
+	extern LPDIRECT3DTEXTURE9 Sickle ;
+
+	extern LPDIRECT3DTEXTURE9 Dagger;
+	extern LPDIRECT3DTEXTURE9 ZombieBlade;
+	extern LPDIRECT3DTEXTURE9 ZombieHammer;
+#pragma endregion Sniper
+
+	extern LPDIRECT3DTEXTURE9 AWM ;
+	extern LPDIRECT3DTEXTURE9 AMR;
+	extern LPDIRECT3DTEXTURE9 Kar98 ;
+	extern LPDIRECT3DTEXTURE9 M24 ;
+
+#pragma endregion Sniper Rifle
+
+	extern LPDIRECT3DTEXTURE9 Mini14 ;
+	extern LPDIRECT3DTEXTURE9 QBU ;
+	extern LPDIRECT3DTEXTURE9 SKS ;
+	extern LPDIRECT3DTEXTURE9 SLR ;
+	extern LPDIRECT3DTEXTURE9 VSS ;
+	extern LPDIRECT3DTEXTURE9 Mk14 ;
+	extern LPDIRECT3DTEXTURE9 Mk12 ;
+	extern LPDIRECT3DTEXTURE9 Win94 ;
+#pragma endregion Scops
+
+	extern LPDIRECT3DTEXTURE9 RedDot ;
+	extern LPDIRECT3DTEXTURE9 Holo ;
+	extern LPDIRECT3DTEXTURE9 S2X ;
+	extern LPDIRECT3DTEXTURE9 S3X ;
+	extern LPDIRECT3DTEXTURE9 S4X ;
+	extern LPDIRECT3DTEXTURE9 S6X ;
+	extern LPDIRECT3DTEXTURE9 S8X ;
+
+#pragma endregion Grenades
+
+	extern LPDIRECT3DTEXTURE9 FragGrenade ;
+	extern LPDIRECT3DTEXTURE9 BurnGrenade ;
+	extern LPDIRECT3DTEXTURE9 SmokeGrenade ;
+	extern LPDIRECT3DTEXTURE9 Apple ;
+
+#pragma endregion Attachments
+
+	extern LPDIRECT3DTEXTURE9 ARExtended ;
+	extern LPDIRECT3DTEXTURE9 ARQExtended ;
+	extern LPDIRECT3DTEXTURE9 ARQuick ;
+	extern LPDIRECT3DTEXTURE9 SMGExtended ;
+	extern LPDIRECT3DTEXTURE9 SMGQExtended ;
+	extern LPDIRECT3DTEXTURE9 SMGQuick ;
+	extern LPDIRECT3DTEXTURE9 SniperExtended ;
+	extern LPDIRECT3DTEXTURE9 SniperQExtended ;
+	extern LPDIRECT3DTEXTURE9 SniperQuick ;
+	extern LPDIRECT3DTEXTURE9 Angled ;
+	extern LPDIRECT3DTEXTURE9 HalfGrip ;
+	extern LPDIRECT3DTEXTURE9 Lasersight ;
+	extern LPDIRECT3DTEXTURE9 LightGrip ;
+	extern LPDIRECT3DTEXTURE9 ThumbGrip ;
+	extern LPDIRECT3DTEXTURE9 Vertical ;
+	extern LPDIRECT3DTEXTURE9 SniperCheckPad ;
+	extern LPDIRECT3DTEXTURE9 ARCheckPad ;
+	extern LPDIRECT3DTEXTURE9 SMGCheckPad ;
+	extern LPDIRECT3DTEXTURE9 ARCompensator ;
+	extern LPDIRECT3DTEXTURE9 ARFlashHider ;
+	extern LPDIRECT3DTEXTURE9 ARSuppressor ;
+	extern LPDIRECT3DTEXTURE9 SMGCompensator ;
+	extern LPDIRECT3DTEXTURE9 SMGFlashHider ;
+	extern LPDIRECT3DTEXTURE9 SMGSuppressor ;
+	extern LPDIRECT3DTEXTURE9 SniperCompensator ;
+	extern LPDIRECT3DTEXTURE9 SniperFlashHider ;
+	extern LPDIRECT3DTEXTURE9 SniperSuppressor ;
+	extern LPDIRECT3DTEXTURE9 DuckBill ;
+	extern LPDIRECT3DTEXTURE9 Choke ;
+	extern LPDIRECT3DTEXTURE9 CrossbowQuick ;
+	extern LPDIRECT3DTEXTURE9 Benzin ;
+	extern LPDIRECT3DTEXTURE9 SuitDesert ;
+	extern LPDIRECT3DTEXTURE9 SuitDesert2 ;
+	extern LPDIRECT3DTEXTURE9 SuitArctic ;
+	extern LPDIRECT3DTEXTURE9 SuitWoodland ;
+
+#pragma endregion Health
+
+	extern LPDIRECT3DTEXTURE9 DrinkEnergy ;
+	extern LPDIRECT3DTEXTURE9 FirstAid ;
+	extern LPDIRECT3DTEXTURE9 MedKit ;
+	extern LPDIRECT3DTEXTURE9 Injection ;
+	extern LPDIRECT3DTEXTURE9 Bandage ;
+	extern LPDIRECT3DTEXTURE9 Pinkiller ;
+
+	extern LPDIRECT3DTEXTURE9 photo;
+	extern LPDIRECT3DTEXTURE9 photo2;
+	extern LPDIRECT3DTEXTURE9 r;
+	extern LPDIRECT3DTEXTURE9 a;
+	extern LPDIRECT3DTEXTURE9 l;
+	extern LPDIRECT3DTEXTURE9 p;
+	extern LPDIRECT3DTEXTURE9 w;
+	extern LPDIRECT3DTEXTURE9 g;
+	extern LPDIRECT3DTEXTURE9 wo;
+	extern LPDIRECT3DTEXTURE9 v;
+	extern LPDIRECT3DTEXTURE9 m;
+	extern LPDIRECT3DTEXTURE9 i;
+	extern LPDIRECT3DTEXTURE9 s;
+	extern LPDIRECT3DTEXTURE9 c;
+	extern LPDIRECT3DTEXTURE9 soufiww;
+
+	extern LPDIRECT3DTEXTURE9 AFFLAG;
+
+	extern LPDIRECT3DTEXTURE9 ALFLAG;
+
+	extern LPDIRECT3DTEXTURE9 DZFLAG;
+
+	extern LPDIRECT3DTEXTURE9 ASFLAG;
+
+	extern LPDIRECT3DTEXTURE9 ADFLAG;
+
+	extern LPDIRECT3DTEXTURE9 AOFLAG;
+
+	extern LPDIRECT3DTEXTURE9 AIFLAG;
+
+	extern LPDIRECT3DTEXTURE9 AQFLAG;
+
+	extern LPDIRECT3DTEXTURE9 AGFLAG;
+
+	extern LPDIRECT3DTEXTURE9 ARFLAG;
+
+	extern LPDIRECT3DTEXTURE9 AMFLAG;
+
+	extern LPDIRECT3DTEXTURE9 AWFLAG;
+
+	extern LPDIRECT3DTEXTURE9 AUFLAG;
+
+	extern LPDIRECT3DTEXTURE9 ATFLAG;
+
+	extern LPDIRECT3DTEXTURE9 AZFLAG;
+
+	extern LPDIRECT3DTEXTURE9 BSFLAG;
+
+	extern LPDIRECT3DTEXTURE9 BHFLAG;
+
+	extern LPDIRECT3DTEXTURE9 BDFLAG;
+
+	extern LPDIRECT3DTEXTURE9 BBFLAG;
+
+	extern LPDIRECT3DTEXTURE9 BYFLAG;
+
+	extern LPDIRECT3DTEXTURE9 BEFLAG;
+
+	extern LPDIRECT3DTEXTURE9 BZFLAG;
+
+	extern LPDIRECT3DTEXTURE9 BJFLAG;
+
+	extern LPDIRECT3DTEXTURE9 BMFLAG;
+
+	extern LPDIRECT3DTEXTURE9 BTFLAG;
+
+	extern LPDIRECT3DTEXTURE9 BOFLAG;
+
+	extern LPDIRECT3DTEXTURE9 BQFLAG;
+
+	extern LPDIRECT3DTEXTURE9 BAFLAG;
+
+	extern LPDIRECT3DTEXTURE9 BWFLAG;
+
+	extern LPDIRECT3DTEXTURE9 BVFLAG;
+
+	extern LPDIRECT3DTEXTURE9 BRFLAG;
+
+	extern LPDIRECT3DTEXTURE9 IOFLAG;
+
+	extern LPDIRECT3DTEXTURE9 BNFLAG;
+
+	extern LPDIRECT3DTEXTURE9 BGFLAG;
+
+	extern LPDIRECT3DTEXTURE9 BFFLAG;
+
+	extern LPDIRECT3DTEXTURE9 BIFLAG;
+
+	extern LPDIRECT3DTEXTURE9 CVFLAG;
+
+	extern LPDIRECT3DTEXTURE9 KHFLAG;
+
+	extern LPDIRECT3DTEXTURE9 CMFLAG;
+
+	extern LPDIRECT3DTEXTURE9 CAFLAG;
+
+	extern LPDIRECT3DTEXTURE9 KYFLAG;
+
+	extern LPDIRECT3DTEXTURE9 CFFLAG;
+
+	extern LPDIRECT3DTEXTURE9 TDFLAG;
+
+	extern LPDIRECT3DTEXTURE9 CLFLAG;
+
+	extern LPDIRECT3DTEXTURE9 CNFLAG;
+
+	extern LPDIRECT3DTEXTURE9 CXFLAG;
+
+	extern LPDIRECT3DTEXTURE9 CCFLAG;
+
+	extern LPDIRECT3DTEXTURE9 COFLAG;
+
+	extern LPDIRECT3DTEXTURE9 KMFLAG;
+
+	extern LPDIRECT3DTEXTURE9 CDFLAG;
+	extern LPDIRECT3DTEXTURE9 CGFLAG;
+
+	extern LPDIRECT3DTEXTURE9 CKFLAG;
+
+	extern LPDIRECT3DTEXTURE9 CRFLAG;
+
+	extern LPDIRECT3DTEXTURE9 HRFLAG;
+
+	extern LPDIRECT3DTEXTURE9 CUFLAG;
+
+	extern LPDIRECT3DTEXTURE9 CWFLAG;
+
+	extern LPDIRECT3DTEXTURE9 CYFLAG;
+
+	extern LPDIRECT3DTEXTURE9 CZFLAG;
+
+	extern LPDIRECT3DTEXTURE9 CIFLAG;
+
+	extern LPDIRECT3DTEXTURE9 DKFLAG;
+
+	extern LPDIRECT3DTEXTURE9 DJFLAG;
+
+	extern LPDIRECT3DTEXTURE9 DMFLAG;
+
+	extern LPDIRECT3DTEXTURE9 DOFLAG;
+
+	extern LPDIRECT3DTEXTURE9 ECFLAG;
+
+	extern LPDIRECT3DTEXTURE9 EGFLAG;
+
+	extern LPDIRECT3DTEXTURE9 SVFLAG;
+
+	extern LPDIRECT3DTEXTURE9 GQFLAG;
+
+	extern LPDIRECT3DTEXTURE9 ERFLAG;
+
+	extern LPDIRECT3DTEXTURE9 EEFLAG;
+
+	extern LPDIRECT3DTEXTURE9 SZFLAG;
+	extern LPDIRECT3DTEXTURE9 ETFLAG;
+	extern LPDIRECT3DTEXTURE9 FKFLAG;
+
+	extern LPDIRECT3DTEXTURE9 FOFLAG;
+	extern LPDIRECT3DTEXTURE9 FJFLAG;
+
+	extern LPDIRECT3DTEXTURE9 FIFLAG;
+
+	extern LPDIRECT3DTEXTURE9 FRFLAG;
+
+	extern LPDIRECT3DTEXTURE9 GFFLAG;
+
+	extern LPDIRECT3DTEXTURE9 PFFLAG;
+	extern LPDIRECT3DTEXTURE9 TFFLAG;
+	extern LPDIRECT3DTEXTURE9 GAFLAG;
+	extern LPDIRECT3DTEXTURE9 GMFLAG;
+	extern LPDIRECT3DTEXTURE9 GEFLAG;
+	extern LPDIRECT3DTEXTURE9 DEFLAG;
+	extern LPDIRECT3DTEXTURE9 GHFLAG;
+	extern LPDIRECT3DTEXTURE9 GIFLAG;
+	extern LPDIRECT3DTEXTURE9 GRFLAG;
+	extern LPDIRECT3DTEXTURE9 GLFLAG;
+	extern LPDIRECT3DTEXTURE9 GDFLAG;
+	extern LPDIRECT3DTEXTURE9 GPFLAG;
+	extern LPDIRECT3DTEXTURE9 GUFLAG;
+	extern LPDIRECT3DTEXTURE9 GTFLAG;
+	extern LPDIRECT3DTEXTURE9 GGFLAG;
+	extern LPDIRECT3DTEXTURE9 GNFLAG;
+	extern LPDIRECT3DTEXTURE9 GWFLAG;
+	extern LPDIRECT3DTEXTURE9 GYFLAG;
+	extern LPDIRECT3DTEXTURE9 HTFLAG;
+	extern LPDIRECT3DTEXTURE9 HMFLAG;
+	extern LPDIRECT3DTEXTURE9 VAFLAG;
+	extern LPDIRECT3DTEXTURE9 HNFLAG;
+	extern LPDIRECT3DTEXTURE9 HKFLAG;
+	extern LPDIRECT3DTEXTURE9 HUFLAG;
+	extern LPDIRECT3DTEXTURE9 JMFLAG;
+	extern LPDIRECT3DTEXTURE9 G1FLAG;
+	extern LPDIRECT3DTEXTURE9 JPFLAG;
+	extern LPDIRECT3DTEXTURE9 JEFLAG;
+	extern LPDIRECT3DTEXTURE9 JOFLAG;
+	extern LPDIRECT3DTEXTURE9 KZFLAG;
+	extern LPDIRECT3DTEXTURE9 KEFLAG;
+	extern LPDIRECT3DTEXTURE9 KIFLAG;
+	extern LPDIRECT3DTEXTURE9 KPFLAG;
+	extern LPDIRECT3DTEXTURE9 KRFLAG;
+	extern LPDIRECT3DTEXTURE9 KWFLAG;
+	extern LPDIRECT3DTEXTURE9 KGFLAG;
+	extern LPDIRECT3DTEXTURE9 LAFLAG;
+
+	extern LPDIRECT3DTEXTURE9 LVFLAG;
+	extern LPDIRECT3DTEXTURE9 LBFLAG;
+	extern LPDIRECT3DTEXTURE9 LSFLAG;
+	extern LPDIRECT3DTEXTURE9 LRFLAG;
+
+	extern LPDIRECT3DTEXTURE9 LYFLAG;
+
+	extern LPDIRECT3DTEXTURE9 LIFLAG;
+
+	extern LPDIRECT3DTEXTURE9 LTFLAG;
+
+	extern LPDIRECT3DTEXTURE9 LUFLAG;
+
+	extern LPDIRECT3DTEXTURE9 MOFLAG;
+
+	extern LPDIRECT3DTEXTURE9 MGFLAG;
+
+	extern LPDIRECT3DTEXTURE9 MWFLAG;
+
+	extern LPDIRECT3DTEXTURE9 MYFLAG;
+
+	extern LPDIRECT3DTEXTURE9 MVFLAG;
+
+	extern LPDIRECT3DTEXTURE9 MLFLAG;
+
+	extern LPDIRECT3DTEXTURE9 MTFLAG;
+
+	extern LPDIRECT3DTEXTURE9 MHFLAG;
+
+	extern LPDIRECT3DTEXTURE9 MQFLAG;
+
+	extern LPDIRECT3DTEXTURE9 MRFLAG;
+
+	extern LPDIRECT3DTEXTURE9 MUFLAG;
+
+	extern LPDIRECT3DTEXTURE9 YTFLAG;
+
+	extern LPDIRECT3DTEXTURE9 MXFLAG;
+
+	extern LPDIRECT3DTEXTURE9 FMFLAG;
+
+	extern LPDIRECT3DTEXTURE9 MDFLAG;
+
+	extern LPDIRECT3DTEXTURE9 MCFLAG;
+
+	extern LPDIRECT3DTEXTURE9 MNFLAG;
+
+	extern LPDIRECT3DTEXTURE9 MEFLAG;
+
+	extern LPDIRECT3DTEXTURE9 MSFLAG;
+
+	extern LPDIRECT3DTEXTURE9 MAFLAG;
+	extern LPDIRECT3DTEXTURE9 MZFLAG;
+	extern LPDIRECT3DTEXTURE9 MMFLAG;
+	extern LPDIRECT3DTEXTURE9 NAFLAG;
+	extern LPDIRECT3DTEXTURE9 NRFLAG;
+
+	extern LPDIRECT3DTEXTURE9 NPFLAG;
+
+	extern LPDIRECT3DTEXTURE9 NLFLAG;
+
+	extern LPDIRECT3DTEXTURE9 NCFLAG;
+
+	extern LPDIRECT3DTEXTURE9 NZFLAG;
+
+	extern LPDIRECT3DTEXTURE9 NIFLAG;
+
+	extern LPDIRECT3DTEXTURE9 NEFLAG;
+
+	extern LPDIRECT3DTEXTURE9 NGFLAG;
+
+	extern LPDIRECT3DTEXTURE9 NUFLAG;
+
+	extern LPDIRECT3DTEXTURE9 NFFLAG;
+
+	extern LPDIRECT3DTEXTURE9 MPFLAG;
+
+	extern LPDIRECT3DTEXTURE9 NOFLAG;
+
+	extern LPDIRECT3DTEXTURE9 OMFLAG;
+
+	extern LPDIRECT3DTEXTURE9 PKFLAG;
+
+	extern LPDIRECT3DTEXTURE9 PWFLAG;
+
+	extern LPDIRECT3DTEXTURE9 PSFLAG;
+
+	extern LPDIRECT3DTEXTURE9 PAFLAG;
+
+	extern LPDIRECT3DTEXTURE9 PGFLAG;
+
+	extern LPDIRECT3DTEXTURE9 PYFLAG;
+
+	extern LPDIRECT3DTEXTURE9 PEFLAG;
+
+	extern LPDIRECT3DTEXTURE9 PHFLAG;
+
+	extern LPDIRECT3DTEXTURE9 PNFLAG;
+
+	extern LPDIRECT3DTEXTURE9 PLFLAG;
+
+	extern LPDIRECT3DTEXTURE9 PTFLAG;
+
+	extern LPDIRECT3DTEXTURE9 PRFLAG;
+	extern LPDIRECT3DTEXTURE9 QAFLAG;
+
+	extern LPDIRECT3DTEXTURE9 MKFLAG;
+
+	extern LPDIRECT3DTEXTURE9 ROFLAG;
+
+	extern LPDIRECT3DTEXTURE9 RUFLAG;
+
+	extern LPDIRECT3DTEXTURE9 RWFLAG;
+
+	extern LPDIRECT3DTEXTURE9 REFLAG;
+
+	extern LPDIRECT3DTEXTURE9 BLFLAG;
+
+	extern LPDIRECT3DTEXTURE9 SHFLAG;
+
+	extern LPDIRECT3DTEXTURE9 KNFLAG;
+
+	extern LPDIRECT3DTEXTURE9 LCFLAG;
+
+	extern LPDIRECT3DTEXTURE9 MFFLAG;
+
+	extern LPDIRECT3DTEXTURE9 PMFLAG;
+
+	extern LPDIRECT3DTEXTURE9 VCFLAG;
+
+	extern LPDIRECT3DTEXTURE9 WSFLAG;
+
+	extern LPDIRECT3DTEXTURE9 SMFLAG;
+
+	extern LPDIRECT3DTEXTURE9 STFLAG;
+
+	extern LPDIRECT3DTEXTURE9 SAFLAG;
+
+	extern LPDIRECT3DTEXTURE9 SNFLAG;
+
+	extern LPDIRECT3DTEXTURE9 RSFLAG;
+
+	extern LPDIRECT3DTEXTURE9 SCFLAG;
+
+	extern LPDIRECT3DTEXTURE9 SLFLAG;
+
+	extern LPDIRECT3DTEXTURE9 SGFLAG;
+
+	extern LPDIRECT3DTEXTURE9 SXFLAG;
+
+	extern LPDIRECT3DTEXTURE9 SKFLAG;
+
+	extern LPDIRECT3DTEXTURE9 SIFLAG;
+
+	extern LPDIRECT3DTEXTURE9 SBFLAG;
+
+	extern LPDIRECT3DTEXTURE9 SOFLAG;
+
+	extern LPDIRECT3DTEXTURE9 ZAFLAG;
+
+	extern LPDIRECT3DTEXTURE9 GSFLAG;
+
+	extern LPDIRECT3DTEXTURE9 SSFLAG;
+
+	extern LPDIRECT3DTEXTURE9 ESFLAG;
+
+	extern LPDIRECT3DTEXTURE9 LKFLAG;
+
+	extern LPDIRECT3DTEXTURE9 SDFLAG;
+
+	extern LPDIRECT3DTEXTURE9 SRFLAG;
+
+	extern LPDIRECT3DTEXTURE9 SJFLAG;
+
+	extern LPDIRECT3DTEXTURE9 SEFLAG;
+
+	extern LPDIRECT3DTEXTURE9 CHFLAG;
+
+	extern LPDIRECT3DTEXTURE9 SYFLAG;
+
+	extern LPDIRECT3DTEXTURE9 TWFLAG;
+
+	extern LPDIRECT3DTEXTURE9 TJFLAG;
+
+	extern LPDIRECT3DTEXTURE9 TZFLAG;
+
+	extern LPDIRECT3DTEXTURE9 THFLAG;
+
+	extern LPDIRECT3DTEXTURE9 TLFLAG;
+
+	extern LPDIRECT3DTEXTURE9 TGFLAG;
+
+	extern LPDIRECT3DTEXTURE9 TKFLAG;
+
+	extern LPDIRECT3DTEXTURE9 TOFLAG;
+
+	extern LPDIRECT3DTEXTURE9 TTFLAG;
+
+	extern LPDIRECT3DTEXTURE9 TNFLAG;
+
+	extern LPDIRECT3DTEXTURE9 TRFLAG;
+
+	extern LPDIRECT3DTEXTURE9 TMFLAG;
+
+	extern LPDIRECT3DTEXTURE9 TCFLAG;
+
+	extern LPDIRECT3DTEXTURE9 TVFLAG;
+
+	extern LPDIRECT3DTEXTURE9 UGFLAG;
+
+	extern LPDIRECT3DTEXTURE9 UAFLAG;
+
+	extern LPDIRECT3DTEXTURE9 AEFLAG;
+
+	extern LPDIRECT3DTEXTURE9 GBFLAG;
+
+	extern LPDIRECT3DTEXTURE9 USFLAG;
+
+	extern LPDIRECT3DTEXTURE9 UYFLAG;
+
+	extern LPDIRECT3DTEXTURE9 UZFLAG;
+
+	extern LPDIRECT3DTEXTURE9 VUFLAG;
+
+	extern LPDIRECT3DTEXTURE9 VEFLAG;
+
+	extern LPDIRECT3DTEXTURE9 VNFLAG;
+
+	extern LPDIRECT3DTEXTURE9 VGFLAG;
+
+	extern LPDIRECT3DTEXTURE9 VIFLAG;
+
+	extern LPDIRECT3DTEXTURE9 WFFLAG;
+
+	extern LPDIRECT3DTEXTURE9 EHFLAG;
+
+	extern LPDIRECT3DTEXTURE9 YEFLAG;
+
+	extern LPDIRECT3DTEXTURE9 ZMFLAG;
+
+	extern LPDIRECT3DTEXTURE9 ZWFLAG;
+
+	extern LPDIRECT3DTEXTURE9 AXFLAG;
+
+	extern LPDIRECT3DTEXTURE9 ISFLAG;
+
+	extern LPDIRECT3DTEXTURE9 INFLAG;
+
+	extern LPDIRECT3DTEXTURE9 IDFLAG;
+
+	extern LPDIRECT3DTEXTURE9 IRFLAG;
+
+	extern LPDIRECT3DTEXTURE9 IQFLAG;
+
+	extern LPDIRECT3DTEXTURE9 IEFLAG;
+
+	extern LPDIRECT3DTEXTURE9 IMFLAG;
+
+	extern LPDIRECT3DTEXTURE9 ILFLAG;
+
+	extern LPDIRECT3DTEXTURE9 ITFLAG;
+
+
+
+
+
+	BOOL Instantiate(HWND hWindow, INT Width, INT Height);
+	VOID BeginDraw();
+	VOID ClearSurface();
+	VOID EndDraw();
+
+	namespace ImGui_DX11
+	{
+		extern ImDrawList* pImGuiDraw;
+		extern ImFont* pRegularFont;
+		extern ImFont* pic;
+		extern ImFont* Font1;
+		extern ImFont* Font2;
+		extern ImFont* Font3;
+		extern ImFont* Chinese;
+		extern ImFont* ARIALBD;
+		extern ImFont* ARIAL;
+		extern ImFont* TAHOMA;
+		extern ImFont* TAHOMABD;
+		extern ImFont* VERDANABD;
+		extern ImFont* VERDANA;
+		extern ImFont* Font;
+
+		typedef struct
+		{
+			DWORD R;
+			DWORD G;
+			DWORD B;
+			DWORD A;
+		}RGBA;
+
+		extern ImFont* special;
+		void AimLine(int x, int y, int x1, int y1, ImColor color, float thickness);
+		void DrawFilledRect(int x, int y, int w, int h, uint32_t color);
+		void CornerBox(int x, int y, int w, int h, int thickness, float cornered, ImColor color);
+		void DrawBlood(float x, float y, float w, float h, float fBlood);
+		void DrawBlood2(float x, float y, float w, float h, float fBlood);
+		void DrawHPVEH(float x, float y, float w, float h, float fBlood);
+		void DrawOailVEH(float x, float y, float w, float h, float fBlood);
+		VOID SpText(ImFont* pFont, FLOAT FontSize, string& Text, FLOAT X, FLOAT Y, ImColor Color, bool Center);
+		VOID DrawLine(FLOAT X1, FLOAT Y1, FLOAT X2, FLOAT Y2, ImColor Color, FLOAT Thickness = 1);
+		VOID IMGUIDRAWLINE(FLOAT X1, FLOAT Y1, FLOAT X2, FLOAT Y2, ImColor Color, FLOAT Thickness);
+		VOID DrawCircle(FLOAT X, FLOAT Y, FLOAT Radius, ImColor Color, FLOAT Thickness = 1);
+		VOID DrawFilledCircle(FLOAT X, FLOAT Y, FLOAT Radius, ImColor Color);
+		VOID DrawCircle2(FLOAT X, FLOAT Y, FLOAT Radius, ImColor Color);
+		VOID DrawCircle3(int x, int y, int radius, ImColor Color, int segments);
+		VOID IMGUIDRAWFILLEDCIRCLE(FLOAT X, FLOAT Y, FLOAT Radius, ImColor Color, FLOAT Thickness);
+		VOID IMGUIDRAWCIRCLE(FLOAT X, FLOAT Y, FLOAT Radius, ImColor Color, FLOAT Thickness);
+		VOID DrawRectangle(FLOAT X, FLOAT Y, FLOAT Width, FLOAT Height, ImColor Color, FLOAT Thickness = 1);
+		VOID DrawFilledRectangle(FLOAT X, FLOAT Y, FLOAT Width, FLOAT Height, ImColor Color);
+		VOID DrawFilledRectangleCurved(float X, float Y, float Width, float Height, ImColor Color, float rounding);
+		VOID DrawUnFilledRectangleCurved(float X, float Y, float Width, float Height, ImColor Color, float rounding);
+
+		VOID DrawUnFilledRectangle(FLOAT X, FLOAT Y, FLOAT Width, FLOAT Height, ImColor Color);
+		VOID DrawUnFilledRectangle2(FLOAT X, FLOAT Y, FLOAT Width, FLOAT Height, ImColor Color);
+		VOID DrawImage(LPDIRECT3DTEXTURE9 img, int x, int y, int sizex, int sizey);
+		VOID DrawString(ImFont* pFont, FLOAT FontSize, string& Text, FLOAT X, FLOAT Y, ImColor Color, bool Center);
+		VOID DrawStringchar(ImFont* pFont, FLOAT FontSize, const char*& Text, FLOAT X, FLOAT Y, ImColor Color, bool Center);
+		VOID DrawStringchar1(ImFont* pFont, FLOAT FontSize, char*& Text, FLOAT X, FLOAT Y, ImColor Color, bool Center);
+		VOID DrawBorderString(ImFont* pFont, FLOAT FontSize, string& Text, FLOAT X, FLOAT Y, ImColor Color, bool Center);
+		VOID DrawBorderText(ImFont* pFont, FLOAT FontSize, string& Text, FLOAT X, FLOAT Y, ImColor Color, bool Center);
+		VOID DrawStrokeText(ImFont* pFont, int x, int y, ImColor Color, const char* str, float fontsize, bool center);
+		VOID DrawCharBorderText(ImFont* pFont, FLOAT size, const char* str, FLOAT x, FLOAT y, ImColor Color, bool Center);
+		VOID DrawWStringBorderText(ImFont* pFont, FLOAT size, const char* str, FLOAT x, FLOAT y, ImColor Color, bool Center);
+		VOID Tri(FLOAT X, FLOAT Y, ImColor Color);
+		void DrawTriangleFilled(int x1, int y1, int x2, int y2, int x3, int y3, float thickness, ImColor color);
+		void DrawTriangle(int x1, int y1, int x2, int y2, int x3, int y3, float thickness, ImColor color);
+		void DrawCrosshair(CrosshairStyle style, float x, float y, float size, float stroke, ImColor color);
+		void RenderLine(const ImVec2& from, const ImVec2& to, uint32_t color, float thickness = 1.0f);
+		void RenderCircleFilled(const ImVec2& position, float radius, uint32_t color);
+		namespace Color
+		{
+			const ImColor Custom = ImColor(0, 255, 255, 225);
+			const ImColor White = ImColor(255, 255, 255);
+			const ImColor enem = ImColor{ 1.00f, 0.27f, 0.00f, 1.0f };
+			const ImColor Black = ImColor(0, 0, 0);
+			const ImColor Red = ImColor(255, 0, 0);
+			const ImColor Green = ImColor(0, 255, 0);
+			const ImColor Blue = ImColor(0, 150, 255);
+			const ImColor Yellow = ImColor(255, 255, 0);
+			const ImColor Cyan = ImColor(0, 180, 255);
+			const ImColor Orange = ImColor(255, 165, 0);
+			const ImColor Maroon = ImColor(128, 0, 0);
+			const ImColor Magenta = ImColor(255, 0, 255);
+			const ImColor Olive = ImColor(128, 128, 0);
+			const ImColor Purple = ImColor(128, 0, 128);
+			const ImColor Chocolate = ImColor(255, 127, 36);
+
+			const ImColor White2 = ImColor(255, 255, 255, 120);
+			const ImColor enem2 = ImColor{ 1.00f, 0.7f, 0.200f, 1.0f };
+			const ImColor Red2 = ImColor{ 255, 0, 0, 120 };
+			const ImColor Green2 = ImColor{ 0,170,0,170 };
+			const ImColor Yellow2 = ImColor{ 255, 255, 0, 120 };
+			const ImColor Black2 = ImColor{ 0, 0, 0, 120 };
+			const ImColor Blue2 = ImColor(30, 150, 255);
+		}
+	}
+}
+

@@ -1,0 +1,889 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Algorithm.cpp">
+      <Filter>Algorithm</Filter>
+    </ClCompile>
+    <ClCompile Include="Data.cpp">
+      <Filter>Data</Filter>
+    </ClCompile>
+    <ClCompile Include="Esp.cpp">
+      <Filter>esp</Filter>
+    </ClCompile>
+    <ClCompile Include="Aimbot.cpp">
+      <Filter>aimbot</Filter>
+    </ClCompile>
+    <ClCompile Include="DX11.cpp">
+      <Filter>DX11</Filter>
+    </ClCompile>
+    <ClCompile Include="DX11Window.cpp">
+      <Filter>DX11</Filter>
+    </ClCompile>
+    <ClCompile Include="Global.cpp">
+      <Filter>globel</Filter>
+    </ClCompile>
+    <ClCompile Include="Driver.cpp">
+      <Filter>driver</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui-docking\imgui.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui-docking\imgui_demo.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui-docking\imgui_draw.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui-docking\imgui_impl_dx11.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui-docking\imgui_impl_win32.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui-docking\imgui_tables.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui-docking\imgui_widgets.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="Setting.cpp">
+      <Filter>settings</Filter>
+    </ClCompile>
+    <ClCompile Include="Memory.cpp">
+      <Filter>memory</Filter>
+    </ClCompile>
+    <ClCompile Include="Utility.cpp">
+      <Filter>utility</Filter>
+    </ClCompile>
+    <ClCompile Include="utf.c">
+      <Filter>esp</Filter>
+    </ClCompile>
+    <ClCompile Include="Discord.cpp">
+      <Filter>Discord</Filter>
+    </ClCompile>
+    <ClCompile Include="hrdwr.cpp" />
+    <ClCompile Include="Discord SDK\src\connection_unix.cpp">
+      <Filter>Discord SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="Discord SDK\src\connection_win.cpp">
+      <Filter>Discord SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="Discord SDK\src\discord_register_linux.cpp">
+      <Filter>Discord SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="Discord SDK\src\discord_register_win.cpp">
+      <Filter>Discord SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="Discord SDK\src\discord_rpc.cpp">
+      <Filter>Discord SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="Discord SDK\src\dllmain.cpp">
+      <Filter>Discord SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="Discord SDK\src\rpc_connection.cpp">
+      <Filter>Discord SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="Discord SDK\src\serialization.cpp">
+      <Filter>Discord SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="Arabic\FarsiType.cpp">
+      <Filter>Arabic</Filter>
+    </ClCompile>
+    <ClCompile Include="Snowflake.cpp" />
+    <ClCompile Include="wwcd\wwcd.cpp">
+      <Filter>WWCD</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="SimpleIni.h" />
+    <ClInclude Include="Includes.h" />
+    <ClInclude Include="Offset.h" />
+    <ClInclude Include="Algorithm.h">
+      <Filter>Algorithm</Filter>
+    </ClInclude>
+    <ClInclude Include="Data.h">
+      <Filter>Data</Filter>
+    </ClInclude>
+    <ClInclude Include="Esp.h">
+      <Filter>esp</Filter>
+    </ClInclude>
+    <ClInclude Include="Aimbot.h">
+      <Filter>aimbot</Filter>
+    </ClInclude>
+    <ClInclude Include="DX11.h">
+      <Filter>DX11</Filter>
+    </ClInclude>
+    <ClInclude Include="DX11Window.h">
+      <Filter>DX11</Filter>
+    </ClInclude>
+    <ClInclude Include="Global.h">
+      <Filter>globel</Filter>
+    </ClInclude>
+    <ClInclude Include="Driver.h">
+      <Filter>driver</Filter>
+    </ClInclude>
+    <ClInclude Include="font.h">
+      <Filter>font</Filter>
+    </ClInclude>
+    <ClInclude Include="icon.h">
+      <Filter>font</Filter>
+    </ClInclude>
+    <ClInclude Include="iconcpp.h">
+      <Filter>font</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui-docking\imconfig.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imconfig.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui-docking\imgui.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui-docking\imgui_impl_dx11.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui-docking\imgui_impl_win32.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui-docking\imgui_internal.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui-docking\imstb_rectpack.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui-docking\imstb_textedit.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui-docking\imstb_truetype.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="Setting.h">
+      <Filter>settings</Filter>
+    </ClInclude>
+    <ClInclude Include="Memory.h">
+      <Filter>memory</Filter>
+    </ClInclude>
+    <ClInclude Include="loadDrv.h">
+      <Filter>driver</Filter>
+    </ClInclude>
+    <ClInclude Include="Utility.h">
+      <Filter>utility</Filter>
+    </ClInclude>
+    <ClInclude Include="stb_image.h" />
+    <ClInclude Include="imguipp.h" />
+    <ClInclude Include="Unicode.h" />
+    <ClInclude Include="utf.h">
+      <Filter>esp</Filter>
+    </ClInclude>
+    <ClInclude Include="logo.h">
+      <Filter>DX11</Filter>
+    </ClInclude>
+    <ClInclude Include="heart.h">
+      <Filter>DX11</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="Discord.h">
+      <Filter>Discord</Filter>
+    </ClInclude>
+    <ClInclude Include="xorstr.hpp" />
+    <ClInclude Include="api\Swifty.hpp">
+      <Filter>api</Filter>
+    </ClInclude>
+    <ClInclude Include="api\Swifty_hor.hpp">
+      <Filter>api</Filter>
+    </ClInclude>
+    <ClInclude Include="api\KeyAuth.hpp">
+      <Filter>api</Filter>
+    </ClInclude>
+    <ClInclude Include="api\xor.h">
+      <Filter>api</Filter>
+    </ClInclude>
+    <ClInclude Include="termcolor.hpp" />
+    <ClInclude Include="hrdwr.h" />
+    <ClInclude Include="Discord SDK\include\discord_register.h">
+      <Filter>Discord SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="Discord SDK\include\discord_rpc.h">
+      <Filter>Discord SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="Discord SDK\src\backoff.h">
+      <Filter>Discord SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="Discord SDK\src\connection.h">
+      <Filter>Discord SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="Discord SDK\src\msg_queue.h">
+      <Filter>Discord SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="Discord SDK\src\rpc_connection.h">
+      <Filter>Discord SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="Discord SDK\src\serialization.h">
+      <Filter>Discord SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="Arabic\FarsiType.h">
+      <Filter>Arabic</Filter>
+    </ClInclude>
+    <ClInclude Include="Snowflake.hpp" />
+    <ClInclude Include="MenuStrings.h">
+      <Filter>esp</Filter>
+    </ClInclude>
+    <ClInclude Include="wwcd\wwcd.h">
+      <Filter>WWCD</Filter>
+    </ClInclude>
+    <ClInclude Include="Notification\fa_solid_900.h">
+      <Filter>Notification</Filter>
+    </ClInclude>
+    <ClInclude Include="Notification\font_awesome_5.h">
+      <Filter>Notification</Filter>
+    </ClInclude>
+    <ClInclude Include="Notification\imgui_notify.h">
+      <Filter>Notification</Filter>
+    </ClInclude>
+    <ClInclude Include="items\AirAttackBomb_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\Bandage_Pickup_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_AirDropBox_New_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_Ammo_9mm_Pickup_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_Ammo_12Guage_Pickup_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_Ammo_45ACP_Pickup_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_Ammo_300Magnum_Pickup_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_Ammo_556mm_Pickup_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_Ammo_762mm_Pickup_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_Ammo_Bolt_Pickup_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_Ammo_Flare_Pickup_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_DJ_Large_E_Pickup_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_DJ_Large_EQ_Pickup_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_DJ_Large_Q_Pickup_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_DJ_Mid_E_Pickup_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_DJ_Mid_EQ_Pickup_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_DJ_Mid_Q_Pickup_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_DJ_Sniper_E_Pickup_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_DJ_Sniper_EQ_Pickup_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_DJ_Sniper_Q_Pickup_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_Grenade_Apple_Weapon_Wrapper_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_Grenade_Burn_Weapon_Wrapper_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_Grenade_Shoulei_Weapon_Wrapper_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_Grenade_Smoke_Weapon_Wrapper_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_MachineGun_MP5K_Wrapper_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_MachineGun_PP19_Wrapper_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_MachineGun_TommyGun_Wrapper_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_MachineGun_UMP9_Wrapper_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_MachineGun_Uzi_Wrapper_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_MachineGun_Vector_Wrapper_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_MZJ_2X_Pickup_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_MZJ_3X_Pickup_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_MZJ_4X_Pickup_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_MZJ_6X_Pickup_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_MZJ_8X_Pickup_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_MZJ_HD_Pickup_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_MZJ_QX_Pickup_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_Other_CrossBow_Wrapper_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_Other_DP28_Wrapper_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_Other_M249_Wrapper_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_Pistol_DesertEagle_Wrapper_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_Pistol_Flaregun_Wrapper_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_Pistol_P18C_Wrapper_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_Pistol_P92_Wrapper_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_Pistol_P1911_Wrapper_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_Pistol_R45_Wrapper_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_Pistol_R1895_Wrapper_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_Pistol_Vz61_Wrapper_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_QK_Choke_Pickup_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_QK_DuckBill_Pickup_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_QK_Large_Compensator_Pickup_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_QK_Large_FlashHider_Pickup_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_QK_Large_Suppressor_Pickup_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_QK_Mid_Compensator_Pickup_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_QK_Mid_FlashHider_Pickup_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_QK_Mid_Suppressor_Pickup_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_QK_Sniper_Compensator_Pickup_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_QK_Sniper_FlashHider_Pickup_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_QK_Sniper_Suppressor_Pickup_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_QT_A_Pickup_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_QT_Sniper_Pickup_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_QT_UZI_Pickup_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_Rifle_AKM_Wrapper_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_Rifle_AUG_Wrapper_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_Rifle_G36_Wrapper_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_Rifle_Groza_Wrapper_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_Rifle_M16A4_Wrapper_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_Rifle_M416_Wrapper_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_Rifle_M762_Wrapper_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_Rifle_Mk47_Wrapper_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_Rifle_QBZ_Wrapper_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_Rifle_SCAR_Wrapper_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_ShotGun_DP12_Wrapper_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_ShotGun_S12K_Wrapper_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_ShotGun_S686_Wrapper_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_ShotGun_S1897_Wrapper_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_ShotGun_SawedOff_Wrapper_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_Sniper_AWM_Wrapper_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_Sniper_Kar98k_Wrapper_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_Sniper_M24_Wrapper_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_Sniper_Mini14_Wrapper_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_Sniper_QBU_Wrapper_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_Sniper_SKS_Wrapper_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_Sniper_SLR_Wrapper_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_Sniper_VSS_Wrapper_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_Sniper_Win94_Wrapper_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_WB_Angled_Pickup_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_WB_HalfGrip_Pickup_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_WB_Lasersight_Pickup_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_WB_LightGrip_Pickup_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_WB_ThumbGrip_Pickup_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_WB_Vertical_Pickup_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_WEP_Cowbar_Pickup_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_WEP_Machete_Pickup_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_WEP_Mk14_Pickup_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_WEP_Pan_Pickup_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_WEP_Sickle_Pickup_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_ZDD_Crossbow_Q_Pickup_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\BP_ZDD_Sniper_Pickup_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\Drink_Pickup_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\Firstaid_Pickup_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\FirstAidbox_Pickup_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\GasCan_Destructible_Pickup_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\Injection_Pickup_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\PickUp_BP_Armor_Lv1_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\PickUp_BP_Armor_Lv2_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\PickUp_BP_Armor_Lv3_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\PickUp_BP_Bag_Lv1_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\PickUp_BP_Bag_Lv2_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\PickUp_BP_Bag_Lv3_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\PickUp_BP_Ghillie_1_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\PickUp_BP_Ghillie_2_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\PickUp_BP_Ghillie_3_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\PickUp_BP_Ghillie_4_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\PickUp_BP_Helmet_Lv1_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\PickUp_BP_Helmet_Lv2_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\PickUp_BP_Helmet_Lv3_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\Pills_Pickup_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\PlayerDeadBox_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayersWeapons\Hand1.h">
+      <Filter>Players Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayersWeapons\Hand2.h">
+      <Filter>Players Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayersWeapons\Hand3.h">
+      <Filter>Players Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayersWeapons\Hand4.h">
+      <Filter>Players Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayersWeapons\Hand5.h">
+      <Filter>Players Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayersWeapons\Hand6.h">
+      <Filter>Players Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayersWeapons\Hand7.h">
+      <Filter>Players Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayersWeapons\Hand8.h">
+      <Filter>Players Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayersWeapons\Hand9.h">
+      <Filter>Players Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayersWeapons\Hand10.h">
+      <Filter>Players Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayersWeapons\Hand11.h">
+      <Filter>Players Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayersWeapons\Hand12.h">
+      <Filter>Players Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayersWeapons\Hand13.h">
+      <Filter>Players Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayersWeapons\Hand14.h">
+      <Filter>Players Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayersWeapons\Hand15.h">
+      <Filter>Players Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayersWeapons\Hand16.h">
+      <Filter>Players Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayersWeapons\Hand17.h">
+      <Filter>Players Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayersWeapons\Hand18.h">
+      <Filter>Players Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayersWeapons\Hand19.h">
+      <Filter>Players Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayersWeapons\Hand20.h">
+      <Filter>Players Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayersWeapons\Hand21.h">
+      <Filter>Players Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayersWeapons\Hand22.h">
+      <Filter>Players Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayersWeapons\Hand23.h">
+      <Filter>Players Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayersWeapons\Hand24.h">
+      <Filter>Players Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayersWeapons\Hand25.h">
+      <Filter>Players Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayersWeapons\Hand26.h">
+      <Filter>Players Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayersWeapons\Hand27.h">
+      <Filter>Players Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayersWeapons\Hand28.h">
+      <Filter>Players Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayersWeapons\Hand29.h">
+      <Filter>Players Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayersWeapons\Hand30.h">
+      <Filter>Players Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayersWeapons\Hand31.h">
+      <Filter>Players Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayersWeapons\Hand32.h">
+      <Filter>Players Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayersWeapons\Hand33.h">
+      <Filter>Players Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayersWeapons\Hand34.h">
+      <Filter>Players Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayersWeapons\Hand35.h">
+      <Filter>Players Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayersWeapons\Hand36.h">
+      <Filter>Players Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayersWeapons\Hand37.h">
+      <Filter>Players Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayersWeapons\Hand38.h">
+      <Filter>Players Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayersWeapons\Hand39.h">
+      <Filter>Players Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayersWeapons\Hand40.h">
+      <Filter>Players Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayersWeapons\Hand41.h">
+      <Filter>Players Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayersWeapons\Hand42.h">
+      <Filter>Players Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayersWeapons\Hand43.h">
+      <Filter>Players Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayersWeapons\Hand44.h">
+      <Filter>Players Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayersWeapons\Hand45.h">
+      <Filter>Players Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayersWeapons\Hand46.h">
+      <Filter>Players Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayersWeapons\Hand47.h">
+      <Filter>Players Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayersWeapons\Hand48.h">
+      <Filter>Players Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayersWeapons\Hand49.h">
+      <Filter>Players Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayersWeapons\Hand50.h">
+      <Filter>Players Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayersWeapons\Hand51.h">
+      <Filter>Players Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayersWeapons\Hand52.h">
+      <Filter>Players Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayersWeapons\Hand53.h">
+      <Filter>Players Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayersWeapons\Hand54.h">
+      <Filter>Players Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayersWeapons\Hand55.h">
+      <Filter>Players Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayersWeapons\Hand56.h">
+      <Filter>Players Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayersWeapons\Hand57.h">
+      <Filter>Players Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="Vehicles Icons\Vehicles.h">
+      <Filter>Vehicles Icons</Filter>
+    </ClInclude>
+    <ClInclude Include="items\Item_Weapon_Mk12_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\Item_Weapon_P90_C.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayersWeapons\Hand58.h">
+      <Filter>Players Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayersWeapons\Hand59.h">
+      <Filter>Players Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayersWeapons\Hand60.h">
+      <Filter>Players Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="items\Dagger.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\ZombieBlade.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="items\ZombieHammer.h">
+      <Filter>items</Filter>
+    </ClInclude>
+    <ClInclude Include="TotalEnemy.h" />
+    <ClInclude Include="Arabic\Arabic.h">
+      <Filter>Arabic</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="api">
+      <UniqueIdentifier>{d484b9e4-8c96-4b7b-865a-766b5d662837}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="esp">
+      <UniqueIdentifier>{15f45d10-2f2c-443a-b8b1-ea4d619328fc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Data">
+      <UniqueIdentifier>{02f31835-408d-4917-b833-57b34b669e0c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Algorithm">
+      <UniqueIdentifier>{f10b896d-919f-4648-aa99-70f713a12d8d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="aimbot">
+      <UniqueIdentifier>{82b1209e-90fe-497f-9ce5-2cfd843e0e28}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DX11">
+      <UniqueIdentifier>{388412ac-329e-41fa-966b-4a749ee89d17}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="imgui">
+      <UniqueIdentifier>{7d365663-9a31-43fc-92e2-1d301a28d043}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="globel">
+      <UniqueIdentifier>{abb6d7f9-85fb-4597-8336-293ee54e3787}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="font">
+      <UniqueIdentifier>{3e999437-b5d2-4fc5-bbe9-9eacc925906b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="driver">
+      <UniqueIdentifier>{450d267f-8b9d-45f4-93d2-4e528fceeb3d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="settings">
+      <UniqueIdentifier>{4faa187c-7da8-482e-a6c1-6387b895a15c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="memory">
+      <UniqueIdentifier>{29a10e40-2633-4921-979d-9650e85eaf74}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="utility">
+      <UniqueIdentifier>{accf3075-5db6-4311-9920-ed46b33203a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Discord">
+      <UniqueIdentifier>{fc80fcbb-b9db-480c-9379-9ca34bc0dc09}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Discord SDK">
+      <UniqueIdentifier>{ea07bcf4-9c93-4610-a2ed-b1b960315d8a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Arabic">
+      <UniqueIdentifier>{c6dd8fcd-8361-4c8c-9772-d1a5a8b5f13a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WWCD">
+      <UniqueIdentifier>{4f85291d-2598-4d8a-aabd-6a2502f9aef8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Notification">
+      <UniqueIdentifier>{f50ecc33-c531-4fb3-8f99-3e8f24abb7fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="items">
+      <UniqueIdentifier>{80baed8b-e7ec-4540-9e10-305bf54f6822}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Players Weapons">
+      <UniqueIdentifier>{2185ac3e-684f-4982-b5a6-477f7f957f9e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Vehicles Icons">
+      <UniqueIdentifier>{d42e4a77-3c5c-4e2e-bd29-dc8012d481bb}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="UnicornHax.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="favicon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Discord SDK\src\CMakeLists.txt">
+      <Filter>Discord SDK</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Discord SDK\src\discord_register_osx.m">
+      <Filter>Discord SDK</Filter>
+    </None>
+    <None Include="Discord SDK\src\out\build\x64-Debug\.cmake\api\v1\query\client-MicrosoftVS\query.json">
+      <Filter>Discord SDK</Filter>
+    </None>
+  </ItemGroup>
+</Project>
