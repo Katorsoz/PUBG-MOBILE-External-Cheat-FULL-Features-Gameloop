@@ -32,7 +32,7 @@ if %errorlevel%==0 (
     start "" "x64\Release"
 ) else (
     echo.
-    echo  [ X ] An error occurred during the build process!
+    echo  [X] An error occurred during the build process!
     echo.
 )
 echo =================================
